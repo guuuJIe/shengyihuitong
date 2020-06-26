@@ -97,6 +97,25 @@
     return UITableViewAutomaticDimension;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                [self.navigationController pushViewController:[NSClassFromString(@"MineCourseVC") new] animated:true];
+            }
+                break;
+            case 1:
+            {
+                [self.navigationController pushViewController:[NSClassFromString(@"MineSquadVC") new] animated:true];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 - (UITableView *)listTableview{
     if (!_listTableview) {
         _listTableview = [[UITableView alloc] init];

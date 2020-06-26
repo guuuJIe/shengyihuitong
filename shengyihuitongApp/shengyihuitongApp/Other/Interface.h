@@ -21,6 +21,8 @@
 #define getLiveData @"/api/course/live"
 #define getCourseInfoData @"/api/course/info/"
 #define getSquadListData @"/api/course/squad/"
+#define getUserCourse @"/api/user/course"
+#define getUserSquad @"/api/user/squad"
 #ifdef DEBUG
 
 #define KServer @"http://class.syhtedu.com"

@@ -37,6 +37,11 @@
 		044EE3B324A5D5E80066A3EB /* CatelogueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3B224A5D5E80066A3EB /* CatelogueCell.m */; };
 		044EE3B724A5E89B0066A3EB /* CourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3B624A5E89B0066A3EB /* CourseDetailModel.m */; };
 		044EE3BA24A5F1D60066A3EB /* SquadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3B924A5F1D60066A3EB /* SquadModel.m */; };
+		044EE3BD24A6305E0066A3EB /* MineCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3BC24A6305E0066A3EB /* MineCourseVC.m */; };
+		044EE3C024A630C40066A3EB /* MineCourseItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3BF24A630C40066A3EB /* MineCourseItemCell.m */; };
+		044EE3C324A632420066A3EB /* MineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3C224A632420066A3EB /* MineManager.m */; };
+		044EE3C624A635ED0066A3EB /* MineSquadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3C524A635ED0066A3EB /* MineSquadVC.m */; };
+		044EE3C924A637050066A3EB /* MineSquadItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3C824A637050066A3EB /* MineSquadItemCell.m */; };
 		3D86ACC538A93C494B5CCC50 /* Pods_shengyihuitongApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88CBAEC8B2DE3021F1E115E /* Pods_shengyihuitongApp.framework */; };
 		928965DA24A18996006C5F1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 928965D924A18996006C5F1E /* AppDelegate.m */; };
 		928965E024A18996006C5F1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928965DF24A18996006C5F1E /* ViewController.m */; };
@@ -190,6 +195,16 @@
 		044EE3B624A5E89B0066A3EB /* CourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailModel.m; sourceTree = "<group>"; };
 		044EE3B824A5F1D60066A3EB /* SquadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquadModel.h; sourceTree = "<group>"; };
 		044EE3B924A5F1D60066A3EB /* SquadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquadModel.m; sourceTree = "<group>"; };
+		044EE3BB24A6305E0066A3EB /* MineCourseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCourseVC.h; sourceTree = "<group>"; };
+		044EE3BC24A6305E0066A3EB /* MineCourseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCourseVC.m; sourceTree = "<group>"; };
+		044EE3BE24A630C40066A3EB /* MineCourseItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCourseItemCell.h; sourceTree = "<group>"; };
+		044EE3BF24A630C40066A3EB /* MineCourseItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCourseItemCell.m; sourceTree = "<group>"; };
+		044EE3C124A632420066A3EB /* MineManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineManager.h; sourceTree = "<group>"; };
+		044EE3C224A632420066A3EB /* MineManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineManager.m; sourceTree = "<group>"; };
+		044EE3C424A635ED0066A3EB /* MineSquadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSquadVC.h; sourceTree = "<group>"; };
+		044EE3C524A635ED0066A3EB /* MineSquadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSquadVC.m; sourceTree = "<group>"; };
+		044EE3C724A637050066A3EB /* MineSquadItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSquadItemCell.h; sourceTree = "<group>"; };
+		044EE3C824A637050066A3EB /* MineSquadItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSquadItemCell.m; sourceTree = "<group>"; };
 		0B4E11EE50FFA216F2578291 /* Pods-shengyihuitongApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.debug.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.debug.xcconfig"; sourceTree = "<group>"; };
 		523BDBB4FD6026639B7EC110 /* Pods-shengyihuitongApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.release.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.release.xcconfig"; sourceTree = "<group>"; };
 		928965D524A18996006C5F1E /* 盛益华通.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "盛益华通.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -745,6 +760,8 @@
 				92DE0E5024A2EB0F00F562EE /* CourseManager.m */,
 				92DE0E7024A33CFE00F562EE /* CateManager.h */,
 				92DE0E7124A33CFE00F562EE /* CateManager.m */,
+				044EE3C124A632420066A3EB /* MineManager.h */,
+				044EE3C224A632420066A3EB /* MineManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -836,6 +853,10 @@
 				92DE0E6224A330A600F562EE /* View */,
 				928966A924A1B0CD006C5F1E /* MineVC.h */,
 				928966AA24A1B0CD006C5F1E /* MineVC.m */,
+				044EE3BB24A6305E0066A3EB /* MineCourseVC.h */,
+				044EE3BC24A6305E0066A3EB /* MineCourseVC.m */,
+				044EE3C424A635ED0066A3EB /* MineSquadVC.h */,
+				044EE3C524A635ED0066A3EB /* MineSquadVC.m */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -849,6 +870,10 @@
 				92DE0E6B24A3397100F562EE /* LineItemTableCell.h */,
 				92DE0E6C24A3397100F562EE /* LineItemTableCell.m */,
 				92DE0E6D24A3397100F562EE /* LineItemTableCell.xib */,
+				044EE3BE24A630C40066A3EB /* MineCourseItemCell.h */,
+				044EE3BF24A630C40066A3EB /* MineCourseItemCell.m */,
+				044EE3C724A637050066A3EB /* MineSquadItemCell.h */,
+				044EE3C824A637050066A3EB /* MineSquadItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1057,6 +1082,7 @@
 				92DE0E5924A2F7AB00F562EE /* ItemCollectionCell.m in Sources */,
 				92DE0E5D24A2F94100F562EE /* CateModel.m in Sources */,
 				928965E024A18996006C5F1E /* ViewController.m in Sources */,
+				044EE3C624A635ED0066A3EB /* MineSquadVC.m in Sources */,
 				9289667424A1AEB4006C5F1E /* NSLayoutConstraint+IBDesignable.m in Sources */,
 				044EE37824A496C80066A3EB /* LiveVC.m in Sources */,
 				044EE39B24A5C9720066A3EB /* CouseIntroVC.m in Sources */,
@@ -1077,6 +1103,7 @@
 				044EE3B324A5D5E80066A3EB /* CatelogueCell.m in Sources */,
 				9289669F24A1AEF2006C5F1E /* JMBManager.m in Sources */,
 				928965EB24A18997006C5F1E /* main.m in Sources */,
+				044EE3C924A637050066A3EB /* MineSquadItemCell.m in Sources */,
 				044EE37B24A4B1020066A3EB /* JobItemCell.m in Sources */,
 				9289668424A1AEC9006C5F1E /* Reachability.m in Sources */,
 				044EE37524A496BB0066A3EB /* JobVC.m in Sources */,
@@ -1095,6 +1122,7 @@
 				92DE0E4A24A2E07500F562EE /* HomeManager.m in Sources */,
 				044EE39524A58C2C0066A3EB /* CourseTitleView.m in Sources */,
 				9289667524A1AEB4006C5F1E /* UIColor+Extend.m in Sources */,
+				044EE3C024A630C40066A3EB /* MineCourseItemCell.m in Sources */,
 				928966C724A1F3E8006C5F1E /* AccLoginView.m in Sources */,
 				928966B324A1D160006C5F1E /* HomeTitleView.m in Sources */,
 				044EE39E24A5C9DD0066A3EB /* CourseCateVC.m in Sources */,
@@ -1107,12 +1135,14 @@
 				928966B924A1D4C0006C5F1E /* HomeNavCollectionCell.m in Sources */,
 				928966A824A1B0C3006C5F1E /* CourseVC.m in Sources */,
 				928966A224A1B09E006C5F1E /* HomeVC.m in Sources */,
+				044EE3BD24A6305E0066A3EB /* MineCourseVC.m in Sources */,
 				9289665624A1AE4B006C5F1E /* JSCMMPopupViewTool.m in Sources */,
 				9289668524A1AEC9006C5F1E /* JSHttpClient.m in Sources */,
 				9289662024A18B73006C5F1E /* CustomeTextField.m in Sources */,
 				9289667C24A1AEB4006C5F1E /* UIFont+SettingSize.m in Sources */,
 				044EE3AA24A5D1290066A3EB /* RatingBar.m in Sources */,
 				044EE3B724A5E89B0066A3EB /* CourseDetailModel.m in Sources */,
+				044EE3C324A632420066A3EB /* MineManager.m in Sources */,
 				92DE0E6624A331E100F562EE /* MineInfoCell.m in Sources */,
 				928966A524A1B0B7006C5F1E /* QuestionVC.m in Sources */,
 				928966AB24A1B0CD006C5F1E /* MineVC.m in Sources */,

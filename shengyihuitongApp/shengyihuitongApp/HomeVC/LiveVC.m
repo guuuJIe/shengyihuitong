@@ -10,6 +10,7 @@
 #import "LiveItemCell.h"
 #import "LiveTitleView.h"
 #import "HomeManager.h"
+#import "CourseDetailVC.h"
 @interface LiveVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *course_latestArray;
@@ -118,7 +119,12 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     
-    return CGSizeMake(Screen_Width, 10);
+    if (section == 0) {
+        return self.course_latestArray.count > 0 ? CGSizeMake(Screen_Width, 10): CGSizeZero;
+    }else{
+        return self.course_listArray.count > 0 ? CGSizeMake(Screen_Width, 10): CGSizeZero;
+    }
+   
 }
 
 
@@ -129,6 +135,19 @@
         return UIEdgeInsetsMake(10, 10, 10, 10);
     
    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+     if (indexPath.section == 0){
+        CourseDetailVC *vc = [CourseDetailVC new];
+        vc.dic = self.course_latestArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }else if (indexPath.section == 1){
+        CourseDetailVC *vc = [CourseDetailVC new];
+        vc.dic = self.course_listArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }
+       
 }
 
 - (UICollectionView *)collectionView{

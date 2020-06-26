@@ -12,6 +12,7 @@
 #import "LiveItemCell.h"
 #import "LiveTitleView.h"
 #import "HomeCourseDetailVC.h"
+#import "CourseDetailVC.h"
 @interface JobVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *squad_listArray;
@@ -167,10 +168,20 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
- 
-    HomeCourseDetailVC *vc = [HomeCourseDetailVC new];
-    vc.dic = self.squad_listArray[indexPath.row];
-    [self.navigationController pushViewController:vc animated:true];
+    if (indexPath.section == 0) {
+        HomeCourseDetailVC *vc = [HomeCourseDetailVC new];
+        vc.dic = self.squad_listArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }else if (indexPath.section == 1){
+        CourseDetailVC *vc = [CourseDetailVC new];
+        vc.dic = self.video_listArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }else if (indexPath.section == 2){
+        CourseDetailVC *vc = [CourseDetailVC new];
+        vc.dic = self.recomm_listArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }
+   
 }
 - (UICollectionView *)collectionView{
     if (!_collectionView) {

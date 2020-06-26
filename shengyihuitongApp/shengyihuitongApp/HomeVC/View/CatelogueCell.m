@@ -75,7 +75,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.iconView.mas_right).offset(12);
         make.centerY.mas_equalTo(self.iconView);
-        make.right.mas_equalTo(self.timeLabel.mas_left).priority(80);
+        make.right.mas_equalTo(-80);
     }];
 }
 
@@ -85,6 +85,7 @@
     if(!_titleLabel)
     {
         _titleLabel = [UILabel commonLabelWithtext:@"标题" color:UIColor999 font:LabelFont14 textAlignment:NSTextAlignmentLeft];
+        _titleLabel.numberOfLines = 0;
         [self addSubview:_titleLabel];
     }
     return _titleLabel;
