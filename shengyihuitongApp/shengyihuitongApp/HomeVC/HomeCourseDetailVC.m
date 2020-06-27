@@ -46,7 +46,7 @@
 - (void)getData{
     self.isFirstLoad = true;
     [JMBManager showLoading];
-    [self.manager getSquadListDataWithparameters:self.dic[@"squad_id"] withCompletionHandler:^(NSError *error, MessageBody *result) {
+    [self.manager getSquadListDataWithparameters:self.dic[@"squad_id"] == nil ? self.dic[@"goods_id"] : self.dic[@"squad_id"] withCompletionHandler:^(NSError *error, MessageBody *result) {
         if (result.code == 1) {
             self.squModel = result.result;
             
@@ -133,7 +133,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 2) {
-        return self.webViewCellHeight;
+        return self.webViewCellHeight+30;
     }
     
     return UITableViewAutomaticDimension;

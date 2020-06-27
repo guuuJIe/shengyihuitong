@@ -62,10 +62,11 @@ typedef enum
 
 #define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
 
+#define refreshUserInfo @"refreshUserInfo"
+#define callLogin @"callLogin"
 //颜色
 #define APPFourColor [UIColor colorWithHexString:@"363636"]
 #define APPColor [UIColor colorWithHexString:@"185399"]
-// - 黑
 #define LabelTextColor191919 [UIColor colorWithHexString:@"191919"]
 #define LabelTextColorff4c4c [UIColor colorWithHexString:@"ff4c4c"]
 #define bgColor [UIColor colorWithHexString:@"f7f7f7"]

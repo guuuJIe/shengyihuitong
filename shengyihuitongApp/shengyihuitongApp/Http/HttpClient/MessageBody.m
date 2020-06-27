@@ -78,9 +78,10 @@
             
             // 其他的系统错误
             body.message = rODic[@"msg"];
-            body.code = [rODic[@"code"] integerValue];
-            body.message = rODic[@"error"];
-            [body authen:[rODic[@"code"] integerValue]];
+            body.code = [rODic[@"status"] integerValue];
+            body.message = rODic[@"msg"];
+            [body authen:[NSString stringWithFormat:@"%@",rODic[@"msg"]]];
+//            [body authen:[rODic[@"status"] integerValue]];
         }
     }
     return body;
@@ -100,7 +101,7 @@
             body.message=@"系统繁忙，请稍后重试!";
             body.code=505;
             body.error=error;
-            [body authen:204];
+            
         }
         
     }else{
@@ -144,20 +145,20 @@
             body.message = rODic[@"msg"];
             body.code = [rODic[@"status"] integerValue];
 //            body.message = rODic[@"error"];
-            [JMBManager showBriefAlert:rODic[@"msg"]];
-            [body authen:[rODic[@"status"] integerValue]];
+//            [JMBManager showBriefAlert:rODic[@"msg"]];
+            [body authen:[NSString stringWithFormat:@"%@",rODic[@"msg"]]];
         }
     }
     return body;
     
 }
 
--(void)authen:(NSInteger)code
+-(void)authen:(NSString *)code
 {
-    if(code== 204)
+    if([code isEqualToString:@"账户未登录"])
     {
         self.message = nil;
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"quickLogin" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:callLogin object:nil];
 //        [UserInfo sharedUserInfo].userModel = [UserModel new];
 //        [[UserInfo sharedUserInfo]saveUserModel];
 //        [JMBManager showBriefAlert:@"登录超时,请重新登录"];

@@ -30,30 +30,41 @@
     [[UITabBar appearance] setTranslucent:NO];
     //显示窗口
     [self.window makeKeyAndVisible];
+    
+    [self registerLogin];
     return YES;
 }
 
 
 
+- (void)registerLogin{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginAct) name:callLogin object:nil];
+}
+
 
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (tabBarController.selectedIndex == 1 || tabBarController.selectedIndex == 2) {
+    if (tabBarController.selectedIndex == 1) {
         //判断用户是否登录
 //
         if (!accessToken) {
             
             self.barContr.selectedIndex = 0;
             
-            LoginVC *VC = [LoginVC new];
-            BaseNavigationController *vc = [[BaseNavigationController alloc] initWithRootViewController:VC];
-            vc.modalPresentationStyle = 0;
-//            BaseViewController *vc = self.barContr.viewControllers[self.barContr.selectedIndex].childViewControllers.lastObject;
-            [self.window.rootViewController presentViewController:vc animated:true completion:nil];
+            [self loginAct];
         }
          
     }
       
+}
+
+- (void)loginAct{
+    LoginVC *VC = [LoginVC new];
+    BaseNavigationController *vc = [[BaseNavigationController alloc] initWithRootViewController:VC];
+    vc.modalPresentationStyle = 0;
+    //            BaseViewController *vc = self.barContr.viewControllers[self.barContr.selectedIndex].childViewControllers.lastObject;
+    [self.window.rootViewController presentViewController:vc animated:true completion:nil];
 }
 
 #pragma mark - UISceneSession lifecycle

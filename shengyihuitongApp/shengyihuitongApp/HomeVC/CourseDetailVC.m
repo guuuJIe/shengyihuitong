@@ -22,6 +22,12 @@
 @property (nonatomic, strong) CourseManager *manager;
 @property (nonatomic, strong) NSDictionary *dataDic;
 @property (nonatomic, strong) CourseDetailModel *courseModel;
+
+
+
+@property (nonatomic, assign) BOOL canScroll;
+@property (nonatomic, assign) BOOL cellScroll;
+@property (nonatomic, assign) CGFloat curContentoffset;
 @end
 
 @implementation CourseDetailVC
@@ -42,6 +48,8 @@
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
 }
 
 - (void)getData{
@@ -55,6 +63,16 @@
     }];
 }
 
+
+- (void)changeScrollStatus//改变主视图的状态
+{
+    self.canScroll = YES;
+
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark --- UITableViewDelegata---
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -91,12 +109,12 @@
             CommentVC *vc3 = [CommentVC new];
             vc.detailModel = self.courseModel;
             vc2.detailModel = self.courseModel;
+            vc3.detailModel = self.courseModel;
             NSMutableArray *contentVCs = [NSMutableArray array];
             [contentVCs addObject:vc];
             [contentVCs addObject:vc2];
             [contentVCs addObject:vc3];
             self.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, CGRectGetHeight(self.view.bounds)) childVCs:contentVCs parentVC:self delegate:self];
-            
             [cell.contentView addSubview:self.pageContentView];
             
         }
@@ -146,6 +164,43 @@
     [self.titleView setPageTitleViewWithProgress:progress originalIndex:startIndex targetIndex:endIndex];
    
 //     _TabelView.scrollEnabled = YES;//此处其实是监测scrollview滚动，pageView滚动结束主tableview可以滑动，或者通过手势监听或者kvo，这里只是提供一种实现方式
+}
+
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    CGRect rectsize = [self.listTableview rectForSection:1];
+    JLog(@"%f   ---   %f ---   %f",scrollView.contentOffset.y, rectsize.size.height,rectsize.origin.y);
+    CGFloat value = scrollView.contentOffset.y;
+    CGFloat limit = rectsize.origin.y ;
+
+    
+    if (value >= limit) {
+        
+        scrollView.contentOffset = CGPointMake(0, limit);
+        if (self.cellScroll) {
+            _curContentoffset = limit;
+            _canScroll = false;
+            _cellScroll = false;
+        }
+        
+        
+    }else{
+        
+        if (value<=0) {
+            scrollView.contentOffset = CGPointMake(0, 0);
+            _cellScroll = true;
+        }
+        
+        if (!self.canScroll && _curContentoffset) {
+            scrollView.contentOffset = CGPointMake(0, limit);
+            
+            JLog(@"执行了");
+        }
+    }
+
+   
 }
 
 - (BaseTableView *)listTableview{

@@ -12,6 +12,8 @@
 
 #define appLogin @"/api/login"
 #define getUserInfo @"/api/user"
+#define userRegister @"/api/register"
+#define getVerCode @"/api/vcode"
 #define Homeindex @"/api/index"
 #define getthirdClass @"/api/third/class"
 #define getthirdLink @"/api/third/link/"
@@ -23,6 +25,8 @@
 #define getSquadListData @"/api/course/squad/"
 #define getUserCourse @"/api/user/course"
 #define getUserSquad @"/api/user/squad"
+#define getCommentList @"/api/course/comment/"
+#define publishComment @"/api/user/comment/publish"
 #ifdef DEBUG
 
 #define KServer @"http://class.syhtedu.com"

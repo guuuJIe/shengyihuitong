@@ -143,17 +143,17 @@
             break;
         case 1:
         {
-            return CGSizeMake(Screen_Width, 190*AdapterScal);
+            return CGSizeMake(Screen_Width, 180);
         }
             break;
         case 2:
         {
-            return CGSizeMake((Screen_Width-10*3)/2, 170);
+            return CGSizeMake((Screen_Width-10*3)/2, 190);
         }
             break;
         case 3:
         {
-            return CGSizeMake((Screen_Width-10*3)/2, 170);
+            return CGSizeMake((Screen_Width-10*3)/2, 190);
         }
             break;
         default:
@@ -236,7 +236,7 @@
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     if (section == 2 || section == 3) {
-        return UIEdgeInsetsMake(10, 10, 10, 10);
+        return UIEdgeInsetsMake(10, 10, 0, 10);
     }
     
     return UIEdgeInsetsMake(0, 0, 0, 0);

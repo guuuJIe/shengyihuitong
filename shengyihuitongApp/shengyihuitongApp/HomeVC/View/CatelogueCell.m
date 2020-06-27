@@ -60,7 +60,8 @@
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(12);
         make.size.mas_equalTo(CGSizeMake(22, 22));
-        make.bottom.mas_equalTo(-12);
+        make.top.mas_equalTo(12);
+       
     }];
     
 
@@ -75,7 +76,8 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.iconView.mas_right).offset(12);
         make.centerY.mas_equalTo(self.iconView);
-        make.right.mas_equalTo(-80);
+        make.right.mas_equalTo(-90);
+         make.bottom.mas_offset(-12);
     }];
 }
 

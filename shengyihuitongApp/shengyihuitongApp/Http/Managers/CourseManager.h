@@ -46,6 +46,20 @@ NS_ASSUME_NONNULL_BEGIN
  @param completionHander completionHander description
  */
 - (void)getSquadListDataWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
+
+/**
+ 评论列表
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)getCommentListDataWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
+
+/**
+ 发布评论
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)publishCommentWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
 @end
 
 NS_ASSUME_NONNULL_END

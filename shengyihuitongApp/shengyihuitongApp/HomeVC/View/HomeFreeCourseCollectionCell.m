@@ -7,10 +7,12 @@
 //
 
 #import "HomeFreeCourseCollectionCell.h"
+#import "JZLStarView.h"
 @interface HomeFreeCourseCollectionCell()
 @property (nonatomic, strong) UILabel *goodsTitleLabel;
 @property (nonatomic, strong) UIImageView *goodsImageView;
 @property (nonatomic, strong) UIButton *timesBtn;
+@property (nonatomic, strong) JZLStarView *ratingBar;
 @end
 
 @implementation HomeFreeCourseCollectionCell
@@ -36,7 +38,7 @@
     [self.contentView addSubview:self.goodsTitleLabel];
     [self.goodsTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.goodsImageView);
-        make.top.mas_equalTo(self.goodsImageView.mas_bottom).offset(14);
+        make.top.mas_equalTo(self.goodsImageView.mas_bottom).offset(10);
     }];
     
     [self.contentView addSubview:self.timesBtn];
@@ -44,6 +46,7 @@
         make.left.mas_equalTo(self.goodsTitleLabel);
         make.bottom.mas_equalTo(-5);
     }];
+    [self.contentView addSubview:self.ratingBar];
 }
 
 - (void)setupData:(NSDictionary *)dic{
@@ -88,5 +91,15 @@
 //        _goodsImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _goodsImageView;
+}
+
+- (JZLStarView *)ratingBar{
+    if (!_ratingBar) {
+        _ratingBar = [[JZLStarView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 50, 60, 20) starCount:5 starStyle:WholeStar isAllowScroe:NO];
+//        _ratingBar.currentScore = 3.2;
+         
+    }
+    
+    return _ratingBar;
 }
 @end

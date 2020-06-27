@@ -23,13 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
-//    [self getData];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:@"refreshUser" object:nil];
+    [self getData];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:refreshUserInfo object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getData];
+//    [self getData];
 }
 
 
@@ -49,8 +50,6 @@
             NSDictionary *dic = result.result;
             self.userDic = dic;
             [self.listTableview reloadData];
-        }else{
-            [XJUtil callUserLogin:self];
         }
     }];
 }
@@ -110,8 +109,24 @@
                 [self.navigationController pushViewController:[NSClassFromString(@"MineSquadVC") new] animated:true];
             }
                 break;
+            case 2:
+            {
+//                [self.navigationController pushViewController:[NSClassFromString(@"MineSquadVC") new] animated:true];
+            }
+                break;
+            case 3:
+            {
+                [self.navigationController pushViewController:[NSClassFromString(@"AboutUsVC") new] animated:true];
+            }
+                break;
             default:
                 break;
+        }
+    }else if (indexPath.section == 0){
+        if (!accessToken) {
+            [XJUtil callUserLogin:self];
+        }else{
+            [self getData];
         }
     }
 }

@@ -26,6 +26,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getUesrInfowithCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
 
+/**
+ 用户注册
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)userRegisterWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
+
+
+/**
+ 获取验证码
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)getVerCodeWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
 @end
 
 NS_ASSUME_NONNULL_END

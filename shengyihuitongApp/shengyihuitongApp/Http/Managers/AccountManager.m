@@ -31,6 +31,20 @@
 }
 
 
+- (void)userRegisterWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    [self.client post:userRegister parameters:parameters isNeedHeader:false withCompletionHandler:^(NSError *error, id result) {
+        MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:NO];
+        completionHander(error,body);
+    }];
+}
+
+- (void)getVerCodeWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    [self.client post:getVerCode parameters:parameters isNeedHeader:false withCompletionHandler:^(NSError *error, id result) {
+          MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:NO];
+          completionHander(error,body);
+      }];
+}
+
 - (JSHttpClient *)client
 {
     if (!_client) {

@@ -32,6 +32,53 @@
 
 @implementation RatingBar
 
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+//        self.backgroundColor = UIColor.redColor;
+        [self inirProp];
+    }
+    
+    return self;
+}
+
+- (void)inirProp{
+    height = self.frame.size.height;
+    width = self.frame.size.width/5;
+}
+
+
+//- (void)setUpUI{
+//    _s1 = [[UIImageView alloc] initWithImage:unSelectedImage];
+//    _s2 = [[UIImageView alloc] initWithImage:unSelectedImage];
+//    _s3 = [[UIImageView alloc] initWithImage:unSelectedImage];
+//    _s4 = [[UIImageView alloc] initWithImage:unSelectedImage];
+//    _s5 = [[UIImageView alloc] initWithImage:unSelectedImage];
+//
+//    [_s1 setFrame:CGRectMake(0,         0, width, height)];
+//    [_s2 setFrame:CGRectMake(width,     0, width, height)];
+//    [_s3 setFrame:CGRectMake(2 * width, 0, width, height)];
+//    [_s4 setFrame:CGRectMake(3 * width, 0, width, height)];
+//    [_s5 setFrame:CGRectMake(4 * width, 0, width, height)];
+//
+//    [_s1 setUserInteractionEnabled:NO];
+//    [_s2 setUserInteractionEnabled:NO];
+//    [_s3 setUserInteractionEnabled:NO];
+//    [_s4 setUserInteractionEnabled:NO];
+//    [_s5 setUserInteractionEnabled:NO];
+//
+//    [self addSubview:_s1];
+//    [self addSubview:_s2];
+//    [self addSubview:_s3];
+//    [self addSubview:_s4];
+//    [self addSubview:_s5];
+//
+//    CGRect frame = [self frame];
+//    frame.size.width = width * 5;
+//    frame.size.height = height;
+//    [self setFrame:frame];
+//}
+
 /**
  *  初始化设置未选中图片、半选中图片、全选中图片，以及评分值改变的代理（可以用
  *  Block）实现
@@ -46,29 +93,29 @@
     self.delegate = delegate;
     
     unSelectedImage = [UIImage imageNamed:deselectedName];
-    halfSelectedImage = halfSelectedName == nil ? unSelectedImage : [UIImage imageNamed:halfSelectedName];
-    fullSelectedImage = [UIImage imageNamed:fullSelectedName];
+//    halfSelectedImage = halfSelectedName == nil ? unSelectedImage : [UIImage imageNamed:halfSelectedName];
+//    fullSelectedImage = [UIImage imageNamed:fullSelectedName];
     
-    height = 0.0,width = 0.0;
+//    height = 12.0,width = 12.0;
     
-    if (height < [fullSelectedImage size].height) {
-        height = [fullSelectedImage size].height;
-    }
-    if (height < [halfSelectedImage size].height) {
-        height = [halfSelectedImage size].height;
-    }
-    if (height < [unSelectedImage size].height) {
-        height = [unSelectedImage size].height;
-    }
-    if (width < [fullSelectedImage size].width) {
-        width = [fullSelectedImage size].width;
-    }
-    if (width < [halfSelectedImage size].width) {
-        width = [halfSelectedImage size].width;
-    }
-    if (width < [unSelectedImage size].width) {
-        width = [unSelectedImage size].width;
-    }
+//    if (height < [fullSelectedImage size].height) {
+//        height = [fullSelectedImage size].height;
+//    }
+//    if (height < [halfSelectedImage size].height) {
+//        height = [halfSelectedImage size].height;
+//    }
+//    if (height < [unSelectedImage size].height) {
+//        height = [unSelectedImage size].height;
+//    }
+//    if (width < [fullSelectedImage size].width) {
+//        width = [fullSelectedImage size].width;
+//    }
+//    if (width < [halfSelectedImage size].width) {
+//        width = [halfSelectedImage size].width;
+//    }
+//    if (width < [unSelectedImage size].width) {
+//        width = [unSelectedImage size].width;
+//    }
     
     starRating = 0.0;
     lastRating = 0.0;

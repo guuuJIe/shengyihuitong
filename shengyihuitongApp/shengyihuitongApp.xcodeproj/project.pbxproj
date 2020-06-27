@@ -43,6 +43,12 @@
 		044EE3C624A635ED0066A3EB /* MineSquadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3C524A635ED0066A3EB /* MineSquadVC.m */; };
 		044EE3C924A637050066A3EB /* MineSquadItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE3C824A637050066A3EB /* MineSquadItemCell.m */; };
 		3D86ACC538A93C494B5CCC50 /* Pods_shengyihuitongApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88CBAEC8B2DE3021F1E115E /* Pods_shengyihuitongApp.framework */; };
+		9266027424A7265000EF8DEC /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266027324A7265000EF8DEC /* CommentCell.m */; };
+		9266027A24A7292100EF8DEC /* JZLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266027624A7292100EF8DEC /* JZLStarView.m */; };
+		9266027B24A7292100EF8DEC /* star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9266027824A7292100EF8DEC /* star_yellow@2x.png */; };
+		9266027C24A7292100EF8DEC /* star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9266027924A7292100EF8DEC /* star_gray@2x.png */; };
+		9266027F24A72EB300EF8DEC /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266027E24A72EB300EF8DEC /* CommentItemCell.m */; };
+		9266028224A7371900EF8DEC /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266028124A7371900EF8DEC /* CommentView.m */; };
 		928965DA24A18996006C5F1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 928965D924A18996006C5F1E /* AppDelegate.m */; };
 		928965E024A18996006C5F1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928965DF24A18996006C5F1E /* ViewController.m */; };
 		928965E324A18996006C5F1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928965E124A18996006C5F1E /* Main.storyboard */; };
@@ -97,6 +103,10 @@
 		928966C324A1E370006C5F1E /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928966C224A1E370006C5F1E /* LoginVC.m */; };
 		928966C724A1F3E8006C5F1E /* AccLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928966C624A1F3E8006C5F1E /* AccLoginView.m */; };
 		928966CB24A1F7A8006C5F1E /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 928966CA24A1F7A8006C5F1E /* AccountManager.m */; };
+		92A4447A24A6D7F20077CD94 /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4447924A6D7F20077CD94 /* AboutUsVC.m */; };
+		92A4447D24A6DCAD0077CD94 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4447C24A6DCAD0077CD94 /* RegisterVC.m */; };
+		92A4448024A6E47C0077CD94 /* CountDownBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4447F24A6E47C0077CD94 /* CountDownBtn.m */; };
+		92A4448324A6E6390077CD94 /* CusPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4448124A6E6380077CD94 /* CusPickerView.m */; };
 		92DE0E4124A2DEAD00F562EE /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DE0E3524A2DEAD00F562EE /* SDCycleScrollView.m */; };
 		92DE0E4224A2DEAD00F562EE /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DE0E3624A2DEAD00F562EE /* UIView+SDExtension.m */; };
 		92DE0E4324A2DEAD00F562EE /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DE0E3724A2DEAD00F562EE /* SDCollectionViewCell.m */; };
@@ -207,6 +217,16 @@
 		044EE3C824A637050066A3EB /* MineSquadItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSquadItemCell.m; sourceTree = "<group>"; };
 		0B4E11EE50FFA216F2578291 /* Pods-shengyihuitongApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.debug.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.debug.xcconfig"; sourceTree = "<group>"; };
 		523BDBB4FD6026639B7EC110 /* Pods-shengyihuitongApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.release.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.release.xcconfig"; sourceTree = "<group>"; };
+		9266027224A7265000EF8DEC /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		9266027324A7265000EF8DEC /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		9266027624A7292100EF8DEC /* JZLStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLStarView.m; sourceTree = "<group>"; };
+		9266027724A7292100EF8DEC /* JZLStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLStarView.h; sourceTree = "<group>"; };
+		9266027824A7292100EF8DEC /* star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yellow@2x.png"; sourceTree = "<group>"; };
+		9266027924A7292100EF8DEC /* star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_gray@2x.png"; sourceTree = "<group>"; };
+		9266027D24A72EB300EF8DEC /* CommentItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentItemCell.h; sourceTree = "<group>"; };
+		9266027E24A72EB300EF8DEC /* CommentItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentItemCell.m; sourceTree = "<group>"; };
+		9266028024A7371900EF8DEC /* CommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		9266028124A7371900EF8DEC /* CommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
 		928965D524A18996006C5F1E /* 盛益华通.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "盛益华通.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		928965D824A18996006C5F1E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		928965D924A18996006C5F1E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -309,6 +329,14 @@
 		928966C624A1F3E8006C5F1E /* AccLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccLoginView.m; sourceTree = "<group>"; };
 		928966C924A1F7A8006C5F1E /* AccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		928966CA24A1F7A8006C5F1E /* AccountManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		92A4447824A6D7F20077CD94 /* AboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
+		92A4447924A6D7F20077CD94 /* AboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
+		92A4447B24A6DCAD0077CD94 /* RegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		92A4447C24A6DCAD0077CD94 /* RegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		92A4447E24A6E47C0077CD94 /* CountDownBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownBtn.h; sourceTree = "<group>"; };
+		92A4447F24A6E47C0077CD94 /* CountDownBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDownBtn.m; sourceTree = "<group>"; };
+		92A4448124A6E6380077CD94 /* CusPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusPickerView.m; sourceTree = "<group>"; };
+		92A4448224A6E6390077CD94 /* CusPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusPickerView.h; sourceTree = "<group>"; };
 		92DE0E3224A2DEAD00F562EE /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		92DE0E3324A2DEAD00F562EE /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
 		92DE0E3424A2DEAD00F562EE /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
@@ -458,6 +486,17 @@
 				523BDBB4FD6026639B7EC110 /* Pods-shengyihuitongApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9266027524A7292100EF8DEC /* JZLStarView */ = {
+			isa = PBXGroup;
+			children = (
+				9266027724A7292100EF8DEC /* JZLStarView.h */,
+				9266027624A7292100EF8DEC /* JZLStarView.m */,
+				9266027824A7292100EF8DEC /* star_yellow@2x.png */,
+				9266027924A7292100EF8DEC /* star_gray@2x.png */,
+			);
+			path = JZLStarView;
 			sourceTree = "<group>";
 		};
 		928965CC24A18996006C5F1E = {
@@ -726,6 +765,12 @@
 				044EE3AF24A5D5240066A3EB /* CatelogueTitleView.m */,
 				044EE3B124A5D5E80066A3EB /* CatelogueCell.h */,
 				044EE3B224A5D5E80066A3EB /* CatelogueCell.m */,
+				9266027224A7265000EF8DEC /* CommentCell.h */,
+				9266027324A7265000EF8DEC /* CommentCell.m */,
+				9266027D24A72EB300EF8DEC /* CommentItemCell.h */,
+				9266027E24A72EB300EF8DEC /* CommentItemCell.m */,
+				9266028024A7371900EF8DEC /* CommentView.h */,
+				9266028124A7371900EF8DEC /* CommentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -736,6 +781,8 @@
 				928966C424A1F3B5006C5F1E /* View */,
 				928966C124A1E370006C5F1E /* LoginVC.h */,
 				928966C224A1E370006C5F1E /* LoginVC.m */,
+				92A4447B24A6DCAD0077CD94 /* RegisterVC.h */,
+				92A4447C24A6DCAD0077CD94 /* RegisterVC.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -745,6 +792,8 @@
 			children = (
 				928966C524A1F3E8006C5F1E /* AccLoginView.h */,
 				928966C624A1F3E8006C5F1E /* AccLoginView.m */,
+				92A4447E24A6E47C0077CD94 /* CountDownBtn.h */,
+				92A4447F24A6E47C0077CD94 /* CountDownBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -769,6 +818,7 @@
 		92DE0E3024A2DE0700F562EE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				9266027524A7292100EF8DEC /* JZLStarView */,
 				044EE3A724A5D1290066A3EB /* RatingBar */,
 				044EE35824A4699E0066A3EB /* Lib */,
 				92DE0E3124A2DEAD00F562EE /* SDCycleScrollView */,
@@ -857,6 +907,8 @@
 				044EE3BC24A6305E0066A3EB /* MineCourseVC.m */,
 				044EE3C424A635ED0066A3EB /* MineSquadVC.h */,
 				044EE3C524A635ED0066A3EB /* MineSquadVC.m */,
+				92A4447824A6D7F20077CD94 /* AboutUsVC.h */,
+				92A4447924A6D7F20077CD94 /* AboutUsVC.m */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -874,6 +926,8 @@
 				044EE3BF24A630C40066A3EB /* MineCourseItemCell.m */,
 				044EE3C724A637050066A3EB /* MineSquadItemCell.h */,
 				044EE3C824A637050066A3EB /* MineSquadItemCell.m */,
+				92A4448224A6E6390077CD94 /* CusPickerView.h */,
+				92A4448124A6E6380077CD94 /* CusPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -999,10 +1053,12 @@
 				9289669824A1AEF2006C5F1E /* anim_06.png in Resources */,
 				928965E824A18997006C5F1E /* LaunchScreen.storyboard in Resources */,
 				9289669C24A1AEF2006C5F1E /* anim_01.png in Resources */,
+				9266027C24A7292100EF8DEC /* star_gray@2x.png in Resources */,
 				9289669724A1AEF2006C5F1E /* anim_04.png in Resources */,
 				92DE0E6724A331E100F562EE /* MineInfoCell.xib in Resources */,
 				044EE39224A587A70066A3EB /* CourseDetailSectionOneCell.xib in Resources */,
 				928965E524A18997006C5F1E /* Assets.xcassets in Resources */,
+				9266027B24A7292100EF8DEC /* star_yellow@2x.png in Resources */,
 				9289669524A1AEF2006C5F1E /* loading.json in Resources */,
 				044EE3A624A5CD770066A3EB /* CourseIntroCell.xib in Resources */,
 				9289669B24A1AEF2006C5F1E /* anim_02.png in Resources */,
@@ -1081,6 +1137,7 @@
 				9289662224A18B73006C5F1E /* BaseTableView.m in Sources */,
 				92DE0E5924A2F7AB00F562EE /* ItemCollectionCell.m in Sources */,
 				92DE0E5D24A2F94100F562EE /* CateModel.m in Sources */,
+				9266028224A7371900EF8DEC /* CommentView.m in Sources */,
 				928965E024A18996006C5F1E /* ViewController.m in Sources */,
 				044EE3C624A635ED0066A3EB /* MineSquadVC.m in Sources */,
 				9289667424A1AEB4006C5F1E /* NSLayoutConstraint+IBDesignable.m in Sources */,
@@ -1088,6 +1145,7 @@
 				044EE39B24A5C9720066A3EB /* CouseIntroVC.m in Sources */,
 				9289665724A1AE4B006C5F1E /* XJUtil.m in Sources */,
 				9289661E24A18B73006C5F1E /* BaseViewController.m in Sources */,
+				9266027F24A72EB300EF8DEC /* CommentItemCell.m in Sources */,
 				044EE36424A4699F0066A3EB /* FSSegmentTitleView.m in Sources */,
 				9289667124A1AEB4006C5F1E /* CALayer+XibConfiguration.m in Sources */,
 				044EE3B024A5D5240066A3EB /* CatelogueTitleView.m in Sources */,
@@ -1100,6 +1158,7 @@
 				9289667824A1AEB4006C5F1E /* UIButton+Gradient.m in Sources */,
 				044EE36624A4699F0066A3EB /* FSLoopScrollView.m in Sources */,
 				92DE0E7224A33CFE00F562EE /* CateManager.m in Sources */,
+				92A4448024A6E47C0077CD94 /* CountDownBtn.m in Sources */,
 				044EE3B324A5D5E80066A3EB /* CatelogueCell.m in Sources */,
 				9289669F24A1AEF2006C5F1E /* JMBManager.m in Sources */,
 				928965EB24A18997006C5F1E /* main.m in Sources */,
@@ -1110,6 +1169,7 @@
 				92DE0E4D24A2E12D00F562EE /* HomeViewModel.m in Sources */,
 				9289661124A18ACF006C5F1E /* MainTabarController.m in Sources */,
 				9289667324A1AEB4006C5F1E /* UIView+CreateEle.m in Sources */,
+				9266027424A7265000EF8DEC /* CommentCell.m in Sources */,
 				044EE37E24A4B47B0066A3EB /* LiveTitleView.m in Sources */,
 				928966BC24A1D58E006C5F1E /* FuncItemCell.m in Sources */,
 				044EE3A124A5CA010066A3EB /* CommentVC.m in Sources */,
@@ -1119,6 +1179,7 @@
 				044EE39124A587A70066A3EB /* CourseDetailSectionOneCell.m in Sources */,
 				044EE36F24A46D110066A3EB /* CourseItemCell.m in Sources */,
 				044EE38A24A4DEEE0066A3EB /* CourserCoverCell.m in Sources */,
+				92A4448324A6E6390077CD94 /* CusPickerView.m in Sources */,
 				92DE0E4A24A2E07500F562EE /* HomeManager.m in Sources */,
 				044EE39524A58C2C0066A3EB /* CourseTitleView.m in Sources */,
 				9289667524A1AEB4006C5F1E /* UIColor+Extend.m in Sources */,
@@ -1132,6 +1193,8 @@
 				9289667B24A1AEB4006C5F1E /* UITextField+FixScreenfont.m in Sources */,
 				044EE36A24A46A6A0066A3EB /* CourseListVC.m in Sources */,
 				92DE0E4324A2DEAD00F562EE /* SDCollectionViewCell.m in Sources */,
+				92A4447D24A6DCAD0077CD94 /* RegisterVC.m in Sources */,
+				9266027A24A7292100EF8DEC /* JZLStarView.m in Sources */,
 				928966B924A1D4C0006C5F1E /* HomeNavCollectionCell.m in Sources */,
 				928966A824A1B0C3006C5F1E /* CourseVC.m in Sources */,
 				928966A224A1B09E006C5F1E /* HomeVC.m in Sources */,
@@ -1156,6 +1219,7 @@
 				044EE3BA24A5F1D60066A3EB /* SquadModel.m in Sources */,
 				044EE36524A4699F0066A3EB /* FSPageContentView.m in Sources */,
 				9289667A24A1AEB4006C5F1E /* UIImage+Gradient.m in Sources */,
+				92A4447A24A6D7F20077CD94 /* AboutUsVC.m in Sources */,
 				92DE0E5124A2EB0F00F562EE /* CourseManager.m in Sources */,
 				928966B624A1D34E006C5F1E /* HomeBannerCell.m in Sources */,
 				044EE38724A4DCA20066A3EB /* CourseDetailVC.m in Sources */,
@@ -1341,7 +1405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xuanjie.shengyihuitongApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xuan.shengyihuitongApp;
 				PRODUCT_NAME = "盛益华通";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1361,7 +1425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xuanjie.shengyihuitongApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xuan.shengyihuitongApp;
 				PRODUCT_NAME = "盛益华通";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

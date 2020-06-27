@@ -9,6 +9,7 @@
 #import "CourseListVC.h"
 #import "CourseItemCell.h"
 #import "CourseManager.h"
+#import "CourseDetailVC.h"
 @interface CourseListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *typeMuArray;
@@ -60,6 +61,13 @@
     [cell setupData:self.typeMuArray[indexPath.row]];
    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CourseDetailVC *vc = [CourseDetailVC new];
+    vc.dic = self.typeMuArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 

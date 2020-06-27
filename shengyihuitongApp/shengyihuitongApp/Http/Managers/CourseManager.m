@@ -55,6 +55,21 @@
        }];
 }
 
+- (void)getCommentListDataWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    NSString *url = [NSString stringWithFormat:@"%@%@",getCommentList,parameters];
+    [self.client get:url parameters:nil isNeedHeader:true withCompletionHandler:^(NSError *error, id result) {
+        MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:false];
+        completionHander(error,body);
+    }];
+}
+
+- (void)publishCommentWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    [self.client post:publishComment parameters:parameters isNeedHeader:true withCompletionHandler:^(NSError *error, id result) {
+        MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:false];
+        completionHander(error,body);
+    }];
+}
+
 - (JSHttpClient *)client
 {
     if (!_client) {

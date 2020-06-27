@@ -9,6 +9,7 @@
 #import "MineSquadVC.h"
 #import "MineManager.h"
 #import "MineSquadItemCell.h"
+#import "HomeCourseDetailVC.h"
 @interface MineSquadVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *dataArr;
@@ -58,6 +59,12 @@
     }
     [cell setupData:self.dataArr[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    HomeCourseDetailVC *vc = [HomeCourseDetailVC new];
+    vc.dic = self.dataArr[indexPath.row];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 

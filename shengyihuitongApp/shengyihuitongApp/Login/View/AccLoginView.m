@@ -136,21 +136,21 @@
     }];
     
     
-//    UIButton *btn = [UIButton new];
-//    [btn setTitle:@"验证码登录" forState:0];
-//    [btn setImage:[UIImage imageNamed:@"more"] forState:0];
-//    [btn.titleLabel setFont:LabelFont14];
-//    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, 0)];
-//    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -60, 0, 0)];
-//    [btn setTitleColor:UIColor90 forState:0];
-//    btn.tag = 101;
-//    [self addSubview:btn];
-//    [btn addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
-//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(button);
-//        make.top.mas_equalTo(button.mas_bottom).offset(16*AdapterScal);
-//        make.width.mas_equalTo(120);
-//    }];
+    UIButton *btn = [UIButton new];
+    [btn setTitle:@"立即注册" forState:0];
+    [btn setImage:[UIImage imageNamed:@"more"] forState:0];
+    [btn.titleLabel setFont:LabelFont14];
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, 0)];
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -60, 0, 0)];
+    [btn setTitleColor:UIColor90 forState:0];
+    btn.tag = 101;
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(clickType:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(button);
+        make.top.mas_equalTo(button.mas_bottom).offset(16*AdapterScal);
+        make.width.mas_equalTo(120);
+    }];
     
     
     UIButton *btn2 = [UIButton new];

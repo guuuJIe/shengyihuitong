@@ -114,6 +114,23 @@
     
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+   
+    JLog(@"子视图cell的偏移量%f",scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y <= 0) {
+
+        scrollView.contentOffset = CGPointMake(0, 0);
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"leaveTop" object:nil];//到顶通知父视图改变状态
+    }else{
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTop" object:nil userInfo:@{@"yValue":@(scrollView.contentOffset.y)}];
+    }
+
+    self.listTableview.showsVerticalScrollIndicator = false;
+}
+
+
 - (UITableView *)listTableview{
     if (!_listTableview) {
         _listTableview = [[UITableView alloc] init];
