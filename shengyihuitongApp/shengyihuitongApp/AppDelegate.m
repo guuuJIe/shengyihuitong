@@ -49,7 +49,7 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
     UIView *launchView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     launchView.backgroundColor = [UIColor yellowColor];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    imageView.image = [UIImage imageNamed:@"launchimage.jpg"];
+    imageView.image = [UIImage imageNamed:@"launchimage .jpg"];
     imageView.center = launchView.center;
     [launchView addSubview:imageView];
     
