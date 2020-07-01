@@ -10,6 +10,8 @@
 #import "MineInfoCell.h"
 #import "LineItemTableCell.h"
 #import "AccountManager.h"
+#import "MineSettingVC.h"
+#import "MineInfoVC.h"
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -23,14 +25,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
-    [self getData];
+    
+    
+    if (accessToken) {
+         [self getData];
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:refreshUserInfo object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self getData];
+    if (!accessToken) {
+       self.userDic = nil;
+       [self.listTableview reloadData];
+    }
+
 }
 
 
@@ -51,6 +61,7 @@
             self.userDic = dic;
             [self.listTableview reloadData];
         }
+        [self.listTableview.mj_header endRefreshing];
     }];
 }
 
@@ -98,25 +109,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
+        
+        if (indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 4) {
+            if (!accessToken) {
+                [XJUtil callUserLogin:self];
+                return;
+            }
+        }
+       
+        
         switch (indexPath.row) {
             case 0:
             {
+               
                 [self.navigationController pushViewController:[NSClassFromString(@"MineCourseVC") new] animated:true];
             }
                 break;
             case 1:
             {
+                
                 [self.navigationController pushViewController:[NSClassFromString(@"MineSquadVC") new] animated:true];
             }
                 break;
             case 2:
             {
-//                [self.navigationController pushViewController:[NSClassFromString(@"MineSquadVC") new] animated:true];
+                [self.navigationController pushViewController:[NSClassFromString(@"MineDownloadVC") new] animated:true];
             }
                 break;
             case 3:
             {
                 [self.navigationController pushViewController:[NSClassFromString(@"AboutUsVC") new] animated:true];
+            }
+                break;
+            case 4:
+            {
+                MineSettingVC *vc = [[MineSettingVC alloc] initWithNibName:@"MineSettingVC" bundle:nil];
+//                [self.navigationController pushViewController:[NSClassFromString(@"AboutUsVC") new] animated:true];
+                [self.navigationController pushViewController:vc animated:true];
             }
                 break;
             default:
@@ -126,7 +155,15 @@
         if (!accessToken) {
             [XJUtil callUserLogin:self];
         }else{
-            [self getData];
+            if (self.userDic) {
+                MineInfoVC *vc = [[MineInfoVC alloc] initWithNibName:@"MineInfoVC" bundle:nil];
+                vc.userDic = self.userDic;
+                [self.navigationController pushViewController:vc animated:true];
+            }else{
+                [self getData];
+            }
+            
+
         }
     }
 }

@@ -53,7 +53,10 @@
         self.nameLbl.text = dic[@"username"];
         self.loginBtn.hidden = true;
         NSString *avatar = [NSString stringWithFormat:@"%@",dic[@"avatar"]];
-        [self.avatarImage sd_setImageWithURL:URL(avatar)];
+        [self.avatarImage sd_setImageWithURL:URL(avatar) placeholderImage:[UIImage imageNamed:@"icon_1"]];
+    }else{
+        self.nameLbl.text = @"未登录";
+        self.loginBtn.hidden = false;
     }
 }
 

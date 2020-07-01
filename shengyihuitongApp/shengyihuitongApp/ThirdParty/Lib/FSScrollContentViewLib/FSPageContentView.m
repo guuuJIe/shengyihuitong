@@ -7,7 +7,7 @@
 //
 
 #import "FSPageContentView.h"
-
+#import "BaseCollectionView.h"
 #define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
 static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
 
@@ -52,7 +52,7 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
-        UICollectionView * collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:flowLayout];
+        BaseCollectionView * collectionView = [[BaseCollectionView alloc]initWithFrame:self.bounds collectionViewLayout:flowLayout];
         collectionView.showsHorizontalScrollIndicator = NO;
         collectionView.pagingEnabled = YES;
         collectionView.bounces = NO;
@@ -77,6 +77,7 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
         [self.parentVC addChildViewController:childVC];
     }
 //    [self addSubview:self.collectionView];
+    
     [self.collectionView reloadData];
 }
 

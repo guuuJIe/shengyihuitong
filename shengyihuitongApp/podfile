@@ -20,6 +20,9 @@ target 'shengyihuitongApp' do
   pod 'TZImagePickerController'
   pod 'MLeaksFinder'
   pod 'lottie-ios', '~>2.5.2'
+  pod 'PolyvVodSDK'
+  pod 'FDStackView', '~> 1.0.1'
+  pod 'PLVMasonry', '~> 1.1.2'
 # pod 'YBImageBrowser'
 
  

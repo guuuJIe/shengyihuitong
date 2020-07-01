@@ -3,13 +3,14 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "MineCourseVC.h"
 #import "MineCourseItemCell.h"
 #import "MineManager.h"
 #import "CourseDetailVC.h"
+#import "MineCourseDownLoadCategolueVC.h"
 @interface MineCourseVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *dataArr;
@@ -56,6 +57,7 @@
         cell = [[MineCourseItemCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellIde];
     }
     [cell setupData:self.dataArr[indexPath.row]];
+    [self itemDownload:cell AtIndexPath:indexPath];
     return cell;
 }
 
@@ -63,6 +65,15 @@
     CourseDetailVC *vc = [CourseDetailVC new];
     vc.dic = self.dataArr[indexPath.row];
     [self.navigationController pushViewController:vc animated:true];
+}
+
+- (void)itemDownload:(MineCourseItemCell *)cell AtIndexPath:(NSIndexPath *)indexPath{
+    WeakSelf(self)
+    cell.itemDownLoadBlock = ^{
+        MineCourseDownLoadCategolueVC *vc = [MineCourseDownLoadCategolueVC new];
+        vc.dic = weakself.dataArr[indexPath.row];
+        [weakself.navigationController pushViewController:vc animated:true];
+    };
 }
 
 

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:false animated:true];
-     self.view.backgroundColor = UIColor.whiteColor;
+     self.view.backgroundColor = UIColorEF;
 }
 
 - (void)loadView{
@@ -31,13 +31,13 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:false animated:true];
-    self.view.backgroundColor = UIColor.whiteColor;
+//    self.view.backgroundColor = UIColor.whiteColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-//    self.view.backgroundColor = UIColorF5F7;
+    self.view.backgroundColor = UIColorEF;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     NSDictionary *dic =@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17 weight:UIFontWeightBold]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
@@ -94,5 +94,7 @@
 -(void)dealloc{
     JLog(@"%@ dealloc",self);
 }
+
+
 
 @end

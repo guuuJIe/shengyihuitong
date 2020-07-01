@@ -3,12 +3,13 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "CourseCateVC.h"
 #import "CatelogueCell.h"
 #import "CatelogueTitleView.h"
+#import "VideoPLayVC.h"
 @interface CourseCateVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *resultArr;
@@ -77,7 +78,22 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 55.0f;
+    return 45.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    Chapter_list *chapter  = self.detailModel.chapter_list[indexPath.section];
+    Child_list *model = chapter.child_list[indexPath.row];
+    if (model.is_free) {
+        VideoPLayVC *vc = [VideoPLayVC new];
+
+        vc.videoId = model.video_id;
+        [self.navigationController pushViewController:vc animated:true];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshFullScreen" object:@{@"video_id":model.video_id}];
+    }else{
+        [JMBManager showBriefAlert:@"当前课程不可观看"];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

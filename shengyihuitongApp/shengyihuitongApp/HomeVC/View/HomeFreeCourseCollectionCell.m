@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIImageView *goodsImageView;
 @property (nonatomic, strong) UIButton *timesBtn;
 @property (nonatomic, strong) JZLStarView *ratingBar;
+@property (nonatomic, strong) UILabel *priceLbl;
 @end
 
 @implementation HomeFreeCourseCollectionCell
@@ -47,6 +48,13 @@
         make.bottom.mas_equalTo(-5);
     }];
     [self.contentView addSubview:self.ratingBar];
+    
+    
+    
+    [self.priceLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(0);
+        make.centerY.mas_equalTo(self.timesBtn);
+    }];
 }
 
 - (void)setupData:(NSDictionary *)dic{
@@ -54,6 +62,7 @@
         [self.goodsImageView sd_setImageWithURL:URL(dic[@"course_img"])];
         self.goodsTitleLabel.text = dic[@"course_name"];
         [self.timesBtn setTitle:[NSString stringWithFormat:@"%@",dic[@"played"]] forState:0];
+        self.priceLbl.text = [NSString stringWithFormat:@"%@",dic[@"user_price"]];
     }
 }
 
@@ -77,6 +86,9 @@
         _timesBtn = [UIButton new];
         [_timesBtn setTitle:@"192394" forState:0];
         [_timesBtn setTitleColor:UIColor999 forState:0];
+        [_timesBtn setImage:[UIImage imageNamed:@"eye"] forState:0];
+        [_timesBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -2, 0, 0)];
+//        [_timesBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 3)];
         [_timesBtn.titleLabel setFont:LabelFont12];
     }
     
@@ -101,5 +113,16 @@
     }
     
     return _ratingBar;
+}
+
+
+-(UILabel *)priceLbl
+{
+    if(!_priceLbl)
+    {
+        _priceLbl = [UILabel commonLabelWithtext:@"238" color:fenseColor font:LabelFont14 textAlignment:NSTextAlignmentCenter];
+        [self.contentView addSubview:_priceLbl];
+    }
+    return _priceLbl;
 }
 @end

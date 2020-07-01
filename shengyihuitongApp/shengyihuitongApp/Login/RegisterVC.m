@@ -2,8 +2,8 @@
 //  RegisterVC.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/27.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/27.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "RegisterVC.h"
@@ -63,7 +63,12 @@
     teltext.returnKeyType = UIReturnKeyDone;
     teltext.keyboardType = UIKeyboardTypeNumberPad;
     teltext.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    teltext.text = @"13901509103";
+    #ifdef DEBUG
+             teltext.text = @"13901509103";
+    #else
+            
+    #endif
+   
     [self.view addSubview:teltext];
     self.acctextField = teltext;
     [teltext addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -100,7 +105,11 @@
     teltext2.returnKeyType = UIReturnKeyDone;
     teltext2.keyboardType = UIKeyboardTypeNumberPad;
     teltext2.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    teltext2.text = @"111122";
+     #ifdef DEBUG
+                teltext2.text = @"13901509103";
+       #else
+               
+       #endif
     
     [self.view addSubview:teltext2];
     self.codetextField = teltext2;
@@ -146,7 +155,11 @@
     teltext3.returnKeyType = UIReturnKeyDone;
     teltext3.keyboardType = UIKeyboardTypeDefault;
     teltext3.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    teltext3.text = @"123abc";
+    #ifdef DEBUG
+             teltext3.text = @"123abc";
+    #else
+            
+    #endif
     
     [self.view addSubview:teltext3];
     self.pwdtextField = teltext3;
@@ -183,7 +196,11 @@
     teltext4.returnKeyType = UIReturnKeyDone;
     teltext4.keyboardType = UIKeyboardTypeDefault;
     teltext4.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    teltext4.text = @"123abc";
+    #ifdef DEBUG
+             teltext4.text = @"123abc";
+    #else
+            
+    #endif
     
     [self.view addSubview:teltext4];
     self.recommandTelTextField = teltext4;
@@ -240,7 +257,7 @@
     button.layer.shadowOffset = CGSizeMake(0, 2);
     button.layer.shadowOpacity = 0.4;
     button.layer.shadowRadius = 2.0;
-    //    button.alpha = 0.5;
+    
     [self.view addSubview:button];
     button.tag = 100;
     [button addTarget:self action:@selector(registerAct) forControlEvents:UIControlEventTouchUpInside];

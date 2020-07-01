@@ -3,7 +3,7 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger is_free;
 @property (nonatomic, copy) NSString *intro;
 @property (nonatomic, assign) NSInteger status;
+@property (nonatomic, assign) BOOL isSel;
 @end
 
 @interface Chapter_list: NSObject

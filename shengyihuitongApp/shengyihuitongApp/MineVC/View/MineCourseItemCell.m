@@ -3,7 +3,7 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "MineCourseItemCell.h"
@@ -13,6 +13,8 @@
 @property (nonatomic, strong) UILabel *priceLbl;
 @property (nonatomic, strong) UILabel *purchaseLbl;
 @property (nonatomic, strong) UIButton *timesBtn;
+
+@property (nonatomic, strong) UIButton *downloadBtn;
 @end
 @implementation MineCourseItemCell
 
@@ -71,6 +73,12 @@
         make.right.mas_equalTo(-10);
         make.centerY.mas_equalTo(self.priceLbl);
     }];
+    
+    [self.contentView addSubview:self.downloadBtn];
+    [self.downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.timesBtn);
+        make.bottom.mas_equalTo(self.timesBtn.mas_top).offset(4);
+    }];
 }
 
 - (void)setupData:(NSDictionary *)dic{
@@ -82,11 +90,11 @@
         [self.timesBtn setTitle:[NSString stringWithFormat:@"%@",dic[@"played"]] forState:0];
     }
 }
-//- (void)setCouserModel:(Course_list *)couserModel{
-//    [self.coverImage sd_setImageWithURL:URL(couserModel.course_img)];
-//    self.titleLabel.text = couserModel.course_name;
-//    self.priceLbl.text = couserModel.price;
-//}
+- (void)downlodAct{
+    if (self.itemDownLoadBlock) {
+        self.itemDownLoadBlock();
+    }
+}
 -(UIImageView *)coverImage{
     if (!_coverImage) {
         _coverImage = [UIImageView new];
@@ -135,10 +143,24 @@
         _timesBtn = [UIButton new];
         [_timesBtn setTitle:@"192394" forState:0];
         [_timesBtn setTitleColor:UIColor999 forState:0];
+        [_timesBtn setImage:[UIImage imageNamed:@"eye"] forState:0];
         [_timesBtn.titleLabel setFont:LabelFont12];
     }
     
     return _timesBtn;
+}
+
+- (UIButton *)downloadBtn{
+    if (!_downloadBtn) {
+        _downloadBtn = [UIButton new];
+        [_downloadBtn setTitle:@"下载课程" forState:0];
+        [_downloadBtn setTitleColor:APPColor forState:0];
+        [_downloadBtn addTarget:self action:@selector(downlodAct) forControlEvents:UIControlEventTouchUpInside];
+//        [_downloadBtnn setImage:[UIImage imageNamed:@"eye"] forState:0];
+        [_downloadBtn.titleLabel setFont:LabelFont15];
+    }
+    
+    return _downloadBtn;
 }
 
 

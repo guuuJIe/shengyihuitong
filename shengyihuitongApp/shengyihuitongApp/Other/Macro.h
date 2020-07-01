@@ -122,4 +122,30 @@ typedef enum
 
 #define accessToken [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"]
 
+
+#define PLV_Min_ScreenWidth 320
+#define PLV_Max_ScreenWidth 414
+
+// iPhone X
+#define PLV_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define PLV_iPhoneXR1 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+#define PLV_iPhoneXR2 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size) : NO)
+#define PLV_iPhoneXS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define PLV_iPhoneXsMax ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+#define PLV_iPhoneXSeries ((PLV_iPhoneX || PLV_iPhoneXR1 || PLV_iPhoneXR2 || PLV_iPhoneXS || PLV_iPhoneXsMax))
+
+// 横屏时左右安全区域
+#define PLV_Landscape_Left_And_Right_Safe_Side_Margin  44
+// 横屏时底部安全区域
+#define PLV_Landscape_Left_And_Right_Safe_Bottom_Margin  21
+// 状态栏高度
+#define PLV_StatusBarHeight ((PLV_iPhoneX || PLV_iPhoneXR) ? 44.f: 20.f)
+// 状态栏+导航栏高度
+
+#define PLV_StatusAndNaviBarHeight (PLV_iPhoneXSeries ? 88.f: 64.f)
+// 各个机型最小逻辑分辨率宽度
+#define PLV_Min_ScreenWidth 320
+#define PLV_Max_ScreenWidth 414
+
 #endif /* Macro_h */

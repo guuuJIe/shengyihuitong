@@ -3,7 +3,7 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "CatelogueTitleView.h"
@@ -34,7 +34,7 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(12);
-        make.centerY.mas_equalTo(self);
+        make.top.mas_equalTo(line.mas_bottom).offset(10);
     }];
 }
 

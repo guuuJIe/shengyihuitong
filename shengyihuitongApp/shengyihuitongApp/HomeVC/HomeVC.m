@@ -14,9 +14,12 @@
 #import "HomeViewModel.h"
 #import "NavigateVC.h"
 #import "CourseDetailVC.h"
-@interface HomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "DelegatePopView.h"
+#import "MainWebVC.h"
+@interface HomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) HomeViewModel *viewModel;
+@property (nonatomic, strong) DelegatePopView *popView;
 @end
 
 @implementation HomeVC
@@ -27,7 +30,23 @@
     self.navigationItem.title = @"盛益华通在线课堂";
     [self setUpUI];
     [self getHomeData];
+    
+    NSInteger isAgree =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"isAgree"] integerValue];
+    
+    if (isAgree != 1) {
+        DelegatePopView *popView = [DelegatePopView new];
+        self.popView = popView;
+        popView.textView.delegate = self;
+        [popView show];
+    }
+    
+   
 }
+
+
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -251,10 +270,22 @@
         [self.navigationController pushViewController:vc animated:true];
     }else if (indexPath.section == 3){
         CourseDetailVC *vc = [CourseDetailVC new];
-               vc.dic = self.viewModel.recommandArr[indexPath.row];
-               [self.navigationController pushViewController:vc animated:true];
+        vc.dic = self.viewModel.recommandArr[indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
     }
    
+}
+
+#pragma mark ---UITextViewDelegate---
+- (BOOL)textView:(UITextView*)textView shouldInteractWithURL:(NSURL*)URL inRange:(NSRange)characterRange {
+    
+    NSLog(@"点击响应--------------- %@",URL);
+    MainWebVC *vc = [MainWebVC new];
+    vc.urlString = [NSString stringWithFormat:@"%@",URL];
+    [self.navigationController pushViewController:vc animated:true];
+    [self.popView hide];
+    return YES;
+    
 }
 
 

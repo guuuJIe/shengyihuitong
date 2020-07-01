@@ -3,7 +3,7 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/25.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "JobVC.h"

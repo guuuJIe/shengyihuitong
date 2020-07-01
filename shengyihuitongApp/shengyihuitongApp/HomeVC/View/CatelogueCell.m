@@ -3,7 +3,7 @@
 //  shengyihuitongApp
 //
 //  Created by Mac on 2020/6/26.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "CatelogueCell.h"
@@ -79,6 +79,13 @@
         make.right.mas_equalTo(-90);
          make.bottom.mas_offset(-12);
     }];
+    
+//    [self.selBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.mas_equalTo(-12);
+//        make.centerY.mas_equalTo(self.contentView);
+//        make.size.mas_equalTo(CGSizeMake(22, 22));
+//    }];
+    
 }
 
 
@@ -101,5 +108,16 @@
         [self addSubview:_timeLabel];
     }
     return _timeLabel;
+}
+
+- (UIButton *)selBtn{
+    if (!_selBtn) {
+        _selBtn = [UIButton new];
+        [_selBtn setImage:[UIImage imageNamed:@"unsel"] forState:0];
+        [_selBtn setImage:[UIImage imageNamed:@"sel"] forState:UIControlStateSelected];
+        [self.contentView addSubview:_selBtn];
+    }
+    
+    return _selBtn;
 }
 @end

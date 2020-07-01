@@ -13,15 +13,15 @@
 
 @implementation UIFont (SettingSize)
 +(void)load{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        //获取替换后的类方法
-        Method newMethod = class_getClassMethod([self class], @selector(adjustFont:));
-        //获取替换前的类方法
-        Method method = class_getClassMethod([self class], @selector(systemFontOfSize:));
-        //然后交换类方法
-        method_exchangeImplementations(newMethod, method);
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        //获取替换后的类方法
+//        Method newMethod = class_getClassMethod([self class], @selector(adjustFont:));
+//        //获取替换前的类方法
+//        Method method = class_getClassMethod([self class], @selector(systemFontOfSize:));
+//        //然后交换类方法
+//        method_exchangeImplementations(newMethod, method);
+//    });
     
     
 }
