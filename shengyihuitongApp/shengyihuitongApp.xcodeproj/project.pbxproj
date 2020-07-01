@@ -96,6 +96,8 @@
 		920631CC24A9D56800F49BDA /* PLVDownloadProcessingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920631CB24A9D56800F49BDA /* PLVDownloadProcessingCell.m */; };
 		920631D024A9DC5600F49BDA /* PLVDownloadCompleteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 920631CF24A9DC5600F49BDA /* PLVDownloadCompleteInfoModel.m */; };
 		920631D324A9DC8400F49BDA /* PLVDownloadComleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920631D224A9DC8400F49BDA /* PLVDownloadComleteCell.m */; };
+		92386A2A24AC66FB007E1024 /* DPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92386A2724AC66FB007E1024 /* DPDatabaseManager.m */; };
+		92386A2B24AC66FB007E1024 /* DPDatabaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92386A2824AC66FB007E1024 /* DPDatabaseUtils.m */; };
 		9266027424A7265000EF8DEC /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266027324A7265000EF8DEC /* CommentCell.m */; };
 		9266027A24A7292100EF8DEC /* JZLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266027624A7292100EF8DEC /* JZLStarView.m */; };
 		9266027B24A7292100EF8DEC /* star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9266027824A7292100EF8DEC /* star_yellow@2x.png */; };
@@ -375,6 +377,10 @@
 		920631CF24A9DC5600F49BDA /* PLVDownloadCompleteInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLVDownloadCompleteInfoModel.m; sourceTree = "<group>"; };
 		920631D124A9DC8400F49BDA /* PLVDownloadComleteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLVDownloadComleteCell.h; sourceTree = "<group>"; };
 		920631D224A9DC8400F49BDA /* PLVDownloadComleteCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLVDownloadComleteCell.m; sourceTree = "<group>"; };
+		92386A2624AC66FB007E1024 /* DPDatabaseUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDatabaseUtils.h; sourceTree = "<group>"; };
+		92386A2724AC66FB007E1024 /* DPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDatabaseManager.m; sourceTree = "<group>"; };
+		92386A2824AC66FB007E1024 /* DPDatabaseUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDatabaseUtils.m; sourceTree = "<group>"; };
+		92386A2924AC66FB007E1024 /* DPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDatabaseManager.h; sourceTree = "<group>"; };
 		9266027224A7265000EF8DEC /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		9266027324A7265000EF8DEC /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		9266027624A7292100EF8DEC /* JZLStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLStarView.m; sourceTree = "<group>"; };
@@ -813,6 +819,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		92386A2524AC66FB007E1024 /* DPDatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				92386A2624AC66FB007E1024 /* DPDatabaseUtils.h */,
+				92386A2824AC66FB007E1024 /* DPDatabaseUtils.m */,
+				92386A2924AC66FB007E1024 /* DPDatabaseManager.h */,
+				92386A2724AC66FB007E1024 /* DPDatabaseManager.m */,
+			);
+			path = DPDatabaseManager;
+			sourceTree = "<group>";
+		};
 		9266027524A7292100EF8DEC /* JZLStarView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1153,6 +1170,7 @@
 		92DE0E3024A2DE0700F562EE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				92386A2524AC66FB007E1024 /* DPDatabaseManager */,
 				92E7B27824AC13D90069E0D1 /* CYLaunchAnimateViewController */,
 				920630E824A8961600F49BDA /* PloyV */,
 				9266027524A7292100EF8DEC /* JZLStarView */,
@@ -1627,6 +1645,7 @@
 				9289662024A18B73006C5F1E /* CustomeTextField.m in Sources */,
 				9289667C24A1AEB4006C5F1E /* UIFont+SettingSize.m in Sources */,
 				044EE3AA24A5D1290066A3EB /* RatingBar.m in Sources */,
+				92386A2B24AC66FB007E1024 /* DPDatabaseUtils.m in Sources */,
 				044EE3B724A5E89B0066A3EB /* CourseDetailModel.m in Sources */,
 				044EE3C324A632420066A3EB /* MineManager.m in Sources */,
 				92DE0E6624A331E100F562EE /* MineInfoCell.m in Sources */,
@@ -1647,6 +1666,7 @@
 				044EE3BA24A5F1D60066A3EB /* SquadModel.m in Sources */,
 				9206316124A9782E00F49BDA /* PLVVodAudioCoverPanelView.m in Sources */,
 				9206315B24A9782E00F49BDA /* PLVVodDanmuSendView.m in Sources */,
+				92386A2A24AC66FB007E1024 /* DPDatabaseManager.m in Sources */,
 				044EE36524A4699F0066A3EB /* FSPageContentView.m in Sources */,
 				9206317824A978F400F49BDA /* UIControl+PLVVod.m in Sources */,
 				9289667A24A1AEB4006C5F1E /* UIImage+Gradient.m in Sources */,

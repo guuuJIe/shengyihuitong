@@ -13,6 +13,7 @@
 #import "CourseManager.h"
 #import "AllSelView.h"
 #import "TasksDownloaderOperation.h"
+#import "DPDatabaseManager.h"
 @interface MineCourseDownLoadCategolueVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *resultArr;
@@ -91,7 +92,8 @@
     Chapter_list *chapter  = self.courseModel.chapter_list[indexPath.section];
 
     cell.detailModel = chapter.child_list[indexPath.row];
-    [self courseSel:cell withChapter:chapter.child_list[indexPath.row]];
+//    [self courseSel:cell withChapter:chapter.child_list[indexPath.row]];
+    [self courseSel:cell withNSIndexPath:indexPath];
     return cell;
 }
 
@@ -106,23 +108,77 @@
     return 55.0f;
 }
 
-- (void)courseSel:(MineCatalogueCell *)cell withChapter:(Child_list *)model{
+- (void)courseSel:(MineCatalogueCell *)cell withNSIndexPath:(NSIndexPath *)indexPath{
+    
+     CourseDetailModel *courseModel = self.courseModel;
+    __block Chapter_list *chapter  = self.courseModel.chapter_list[indexPath.section];
+    Child_list *model = chapter.child_list[indexPath.row];
+    
+    
+    NSMutableArray <Child_list *> *dataArray = [NSMutableArray array];
+    __block CourseDetailModel *tempModel = courseModel;
     cell.clickRowBlock = ^(BOOL isClick) {
          model.isSel = !model.isSel;
         if (model.isSel) {
             if ([self.modelArr containsObject:model]) {
-                [self.modelArr removeObject:model];
                 return ;
             }
-            [self.modelArr addObject:model];
+            
+            /*
+             *
+             先遍历选中的课程数组
+             如果有选中 加入新的数组 新的childlist
+             */
+            
+            [chapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.isSel) {
+                    [dataArray addObject:model];
+                    chapter.itemIsSel = true;//标记有子数组选中 把章节设为true
+                }else{
+                    chapter.itemIsSel = false;
+                }
+                
+            }];
+            
+
+            /*
+            *
+              遍历选中的章节数组
+              如果itemIsSel== true 更改新的childList
+            */
+            [tempModel.chapter_list enumerateObjectsUsingBlock:^(Chapter_list * _Nonnull chapterModel, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (chapterModel.itemIsSel) {
+                    chapterModel.child_list = dataArray;
+                }else{
+                    chapterModel.child_list = [NSMutableArray array];
+                }
+            }];
+            
+            CourseDetailModel *model333 = tempModel;
+
+            JLog(@"下载的数据%@",tempModel);
         }else{
-            if ([self.modelArr containsObject:model]) {
-                [self.modelArr removeObject:model];
-            }
+
+            
+            [chapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (!obj.isSel) {
+                    chapter.itemIsSel = false;//标记有子数组选中 把章节设为true
+                }
+                
+            }];
+            
+            
+            [tempModel.chapter_list enumerateObjectsUsingBlock:^(Chapter_list * _Nonnull chapterModel, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (!chapterModel.itemIsSel) {
+                    chapterModel.child_list = dataArray;
+                }
+            }];
+            
+            CourseDetailModel *modealllll = tempModel;
+            JLog(@"下载的数据%@",modealllll);
         }
     };
-    
-//    [self.listTableview reloadData];
+
 }
 
 

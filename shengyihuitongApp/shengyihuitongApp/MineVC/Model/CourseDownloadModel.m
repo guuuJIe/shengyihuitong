@@ -11,3 +11,15 @@
 @implementation CourseDownloadModel
 
 @end
+
+
+@implementation ChapterModel
+
+
+@end
+
+
+@implementation ChildModel
+
+
+@end

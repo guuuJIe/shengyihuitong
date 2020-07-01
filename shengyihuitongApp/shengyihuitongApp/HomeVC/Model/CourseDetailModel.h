@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *chapter_name;
 @property (nonatomic, assign) NSInteger chapter_id;
 @property (nonatomic, assign) NSInteger difficult;
-@property (nonatomic, strong) NSArray<Child_list *> *child_list;
+@property (nonatomic, strong) NSMutableArray<Child_list *> *child_list;
 @property (nonatomic, copy) NSString *live_begin;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, assign) NSInteger is_delete;
@@ -50,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger study_time;
 @property (nonatomic, assign) NSInteger course_id;
 @property (nonatomic, assign) NSInteger duration;
+@property (nonatomic, assign) BOOL itemIsSel;//有课程item选中
 @end
 
 
@@ -93,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger play_status;
 @property (nonatomic, copy) NSString *room_id;
 @property (nonatomic, copy) NSString *course_img;
-@property (nonatomic, strong) NSArray<Chapter_list *> *chapter_list;
+@property (nonatomic, strong) NSMutableArray<Chapter_list *> *chapter_list;
 @property (nonatomic, assign) NSInteger played;
 
 @end
