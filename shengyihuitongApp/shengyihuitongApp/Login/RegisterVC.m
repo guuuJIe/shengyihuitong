@@ -44,12 +44,16 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)setupUI{
     self.navigationItem.title = @"注册";
-    
+    self.view.backgroundColor = UIColor.whiteColor;
     UILabel *title = [UILabel new];
     title.text = @"账号";
-    title.textColor = UIColor60;
+    title.textColor = UIColor333;
     title.font = LabelFont14;
     [self.view addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,7 +95,7 @@
     
     UILabel *title2 = [UILabel new];
     title2.text = @"验证码";
-    title2.textColor = UIColor60;
+    title2.textColor = UIColor333;
     title2.font = LabelFont14;
     [self.view addSubview:title2];
     [title2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,7 +145,7 @@
     
     UILabel *title3 = [UILabel new];
     title3.text = @"密码";
-    title3.textColor = UIColor60;
+    title3.textColor = UIColor333;
     title3.font = LabelFont14;
     [self.view addSubview:title3];
     [title3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,7 +185,7 @@
     
     UILabel *title4 = [UILabel new];
     title4.text = @"推荐人手机号码";
-    title4.textColor = UIColor60;
+    title4.textColor = UIColor333;
     title4.font = LabelFont14;
     [self.view addSubview:title4];
     [title4 mas_makeConstraints:^(MASConstraintMaker *make) {

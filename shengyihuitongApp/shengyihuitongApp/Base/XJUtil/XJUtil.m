@@ -411,7 +411,7 @@
     return maskLayer;
 }
 
-+ (NSDictionary *)convert2DictionaryWithJSONString:(NSString *)jsonString{
++ (id )convert2DictionaryWithJSONString:(NSString *)jsonString{
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
@@ -422,7 +422,29 @@
         NSLog(@"%@",err);
         return nil;
     }
-    return dic;
+    
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *deserializedDictionary = (NSDictionary *)dic;
+
+        NSLog(@"反序列化后的dictionary数据 = %@", deserializedDictionary);
+
+        return deserializedDictionary;
+
+    
+    }
+    
+    if ([dic isKindOfClass:[NSArray class]]) {
+        NSArray *deserializedArray = (NSArray *)dic;
+
+        NSLog(@"反序列化json后的数组 = %@", deserializedArray);
+
+        return deserializedArray;
+
+      
+    }
+    
+
+    return nil;
 }
 
 + (void)callUserLogin:(UIViewController *)contr{

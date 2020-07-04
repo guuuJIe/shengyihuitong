@@ -2,8 +2,8 @@
 //  PLVDownloadCompleteInfoModel.h
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/29.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/29.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PLVVodLocalVideo *localVideo;
 
 @property (nonatomic, strong) PLVVodDownloadInfo *downloadInfo;
+@property (nonatomic, strong) NSString *userPhone;
+@property (nonatomic, assign) NSInteger stautes;
+@property (nonatomic, copy) NSString *identifier;
 @end
 
 NS_ASSUME_NONNULL_END

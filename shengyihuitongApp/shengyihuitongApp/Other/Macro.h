@@ -16,6 +16,9 @@ typedef enum
     RefreshTypeDown//下拉刷新
 } RefreshType; /* 表格数据更新的类型 */
 
+
+#define mytableName @"downloadTable"
+
 //常用常量
 #define AdapterScal  [UIScreen mainScreen].bounds.size.width/375.0
 #define AdapterHeightScal  [UIScreen mainScreen].bounds.size.height/667
@@ -97,7 +100,7 @@ typedef enum
 #define UIColorFFD1 [UIColor colorWithHexString:@"FFD1D1"]
 #define UIColor1F85 [UIColor colorWithHexString:@"1F8529"]
 #define UIColorFFA1 [UIColor colorWithHexString:@"FFA127"]
-#define UIColor60 [UIColor colorWithHexString:@"606266"]
+#define UIColor00FF [UIColor colorWithHexString:@"00FF7F"]
 #define UIColor90 [UIColor colorWithHexString:@"909399"]
 #define UIColorF0F5 [UIColor colorWithHexString:@"F0F5FF"]
 #define UIColorFF9F [UIColor colorWithHexString:@"FF9F33"]
@@ -121,7 +124,7 @@ typedef enum
 #define URL(url) [NSURL URLWithString:url]
 
 #define accessToken [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"]
-
+#define userMobile [[NSUserDefaults standardUserDefaults]objectForKey:@"mobile"]
 
 #define PLV_Min_ScreenWidth 320
 #define PLV_Max_ScreenWidth 414

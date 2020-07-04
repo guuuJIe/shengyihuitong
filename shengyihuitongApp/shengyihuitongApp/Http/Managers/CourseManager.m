@@ -70,6 +70,13 @@
     }];
 }
 
+- (void)courseRecordWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    [self.client post:courseRecord parameters:parameters isNeedHeader:true withCompletionHandler:^(NSError *error, id result) {
+        MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:false];
+        completionHander(error,body);
+    }];
+}
+
 - (JSHttpClient *)client
 {
     if (!_client) {

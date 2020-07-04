@@ -182,10 +182,10 @@
                     <rect key="frame" x="0.0" y="321" width="667" height="54"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8uy-pg-t24" userLabel="右侧控件容器">
-                            <rect key="frame" x="493" y="8" width="154" height="38"/>
+                            <rect key="frame" x="493" y="13.5" width="154" height="27"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1e-Fs-ZW8" userLabel="清晰度">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <state key="normal" title="高清">
                                         <color key="titleColor" red="0.0" green="0.70196078429999997" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,7 +195,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-UF-Gw2" userLabel="倍速">
-                                    <rect key="frame" x="45" y="0.0" width="30" height="38"/>
+                                    <rect key="frame" x="45" y="0.0" width="30" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <state key="normal" title="1x">
                                         <color key="titleColor" red="0.0" green="0.70196078429999997" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,7 +205,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-v8-6dn" userLabel="线路">
-                                    <rect key="frame" x="90" y="0.0" width="30" height="38"/>
+                                    <rect key="frame" x="90" y="0.0" width="30" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <state key="normal" title="线路">
                                         <color key="titleColor" red="0.0" green="0.70196078429999997" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,7 +215,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcV-KY-7rP" userLabel="小窗播放">
-                                    <rect key="frame" x="127.5" y="0.0" width="19" height="38"/>
+                                    <rect key="frame" x="127.5" y="0.0" width="19" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="JJW-4m-vgE"/>
                                     </constraints>
@@ -226,7 +226,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saM-Oi-XEL" userLabel="关闭副屏">
-                                    <rect key="frame" x="127.5" y="0.0" width="48" height="38"/>
+                                    <rect key="frame" x="127.5" y="0.0" width="48" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="48" id="7Hj-lV-DRY"/>
                                     </constraints>
@@ -237,7 +237,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FA-3b-cVY" userLabel="全屏/半屏">
-                                    <rect key="frame" x="135" y="0.0" width="19" height="38"/>
+                                    <rect key="frame" x="135" y="0.0" width="19" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="WfJ-LE-Hq5"/>
                                     </constraints>
@@ -251,10 +251,10 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="9IC-aY-C7s" userLabel="左侧控件容器">
-                            <rect key="frame" x="20" y="8" width="136.5" height="38"/>
+                            <rect key="frame" x="20" y="16" width="136.5" height="22"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHS-iO-d00" userLabel="播放/暂停">
-                                    <rect key="frame" x="0.0" y="0.0" width="14" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="14" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="14" id="ciA-3R-Fr5"/>
                                     </constraints>
@@ -263,7 +263,7 @@
                                     <state key="selected" image="plv_vod_btn_pause"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 / 20:03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-7b-Uty" userLabel="时间标签">
-                                    <rect key="frame" x="31" y="0.0" width="105.5" height="38"/>
+                                    <rect key="frame" x="31" y="0.0" width="105.5" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -355,10 +355,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Fh2-rt-Zgw" userLabel="右侧控件容器">
-                            <rect key="frame" x="568" y="11" width="79" height="22"/>
+                            <rect key="frame" x="625" y="11" width="22" height="22"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-Qu-swT" userLabel="投屏">
-                                    <rect key="frame" x="-22" y="0.0" width="22" height="22"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="22" id="afF-T0-n8D"/>
                                         <constraint firstAttribute="height" constant="22" id="ndl-Ds-lrX"/>
@@ -370,7 +370,7 @@
                                         <action selector="castAction:" destination="-1" eventType="touchUpInside" id="wP9-G2-ZEU"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rem-Kt-gSH" userLabel="分享">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rem-Kt-gSH" userLabel="分享">
                                     <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="22" id="RSD-VP-nld"/>
@@ -382,7 +382,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-93-2RH" userLabel="设置">
-                                    <rect key="frame" x="57" y="0.0" width="22" height="22"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="22" id="hE9-Ac-oVC"/>
                                     </constraints>
@@ -395,7 +395,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYi-5F-3u5" userLabel="返回">
-                            <rect key="frame" x="20" y="5" width="510" height="34"/>
+                            <rect key="frame" x="20" y="11.5" width="567" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="60" maxY="0.0"/>
@@ -420,10 +420,10 @@
                     <rect key="frame" x="0.0" y="321" width="667" height="54"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-na-E3E" userLabel="左侧控件容器">
-                            <rect key="frame" x="20" y="8" width="391.5" height="38"/>
+                            <rect key="frame" x="20" y="16" width="467" height="22"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1w-XP-Fw3" userLabel="播放/暂停">
-                                    <rect key="frame" x="0.0" y="0.0" width="14" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="14" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="14" id="5kk-CX-Fbi"/>
                                     </constraints>
@@ -432,7 +432,7 @@
                                     <state key="selected" image="plv_vod_btn_pause"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 / 20:03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-RW-YrS" userLabel="时间标签">
-                                    <rect key="frame" x="31" y="0.0" width="360.5" height="38"/>
+                                    <rect key="frame" x="31" y="0.0" width="436" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -440,10 +440,10 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wvi-ry-FS3" userLabel="右侧控件容器">
-                            <rect key="frame" x="411.5" y="8" width="235.5" height="38"/>
+                            <rect key="frame" x="487" y="13.5" width="160" height="27"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k7-Ox-gzF" userLabel="弹幕开关">
-                                    <rect key="frame" x="0.0" y="0.0" width="60.5" height="38"/>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k7-Ox-gzF" userLabel="弹幕开关">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="27"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="plv_vod_btn_dm_off"/>
                                     <state key="selected" image="plv_vod_btn_dm_on"/>
@@ -452,7 +452,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vun-eN-a4o" userLabel="清晰度">
-                                    <rect key="frame" x="75.5" y="0.0" width="32" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="32" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="32" id="Nfb-Gd-QHt"/>
                                     </constraints>
@@ -469,7 +469,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F67-0j-oen" userLabel="速率">
-                                    <rect key="frame" x="122.5" y="0.0" width="32" height="38"/>
+                                    <rect key="frame" x="47" y="0.0" width="32" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="32" id="pSE-Mn-V3W"/>
                                     </constraints>
@@ -484,7 +484,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtI-Mj-Vii" userLabel="线路">
-                                    <rect key="frame" x="169.5" y="0.0" width="32" height="38"/>
+                                    <rect key="frame" x="94" y="0.0" width="32" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="32" id="aGd-Wu-5Qt"/>
                                     </constraints>
@@ -497,7 +497,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpI-TO-oqU" userLabel="小窗播放">
-                                    <rect key="frame" x="209" y="0.0" width="19" height="38"/>
+                                    <rect key="frame" x="133.5" y="0.0" width="19" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="1af-Xr-lPI"/>
                                     </constraints>
@@ -508,7 +508,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeN-Dc-0Hd" userLabel="目录">
-                                    <rect key="frame" x="209" y="0.0" width="32" height="38"/>
+                                    <rect key="frame" x="133.5" y="0.0" width="32" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="32" id="xXJ-bW-hB2"/>
                                     </constraints>
@@ -521,7 +521,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dny-xo-50l" userLabel="关闭副屏">
-                                    <rect key="frame" x="209" y="0.0" width="19" height="38"/>
+                                    <rect key="frame" x="133.5" y="0.0" width="19" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="CPJ-dz-RUg"/>
                                     </constraints>
@@ -533,7 +533,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhT-m4-gZI" userLabel="全屏/半屏">
-                                    <rect key="frame" x="216.5" y="0.0" width="19" height="38"/>
+                                    <rect key="frame" x="141" y="0.0" width="19" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="pXt-4d-FHM"/>
                                     </constraints>
@@ -562,10 +562,10 @@
                     <color key="backgroundColor" red="0.0" green="0.062745098040000002" blue="0.1058823529" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-dm-mU2" userLabel="右侧控件容器">
-                    <rect key="frame" x="537" y="127.5" width="120" height="120"/>
+                    <rect key="frame" x="657" y="187.5" width="0.0" height="0.0"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4D-xH-rSz" userLabel="截图">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4D-xH-rSz" userLabel="截图">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="plv_vod_btn_screenshot"/>
                             <connections>
@@ -573,7 +573,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h89-Es-caU" userLabel="弹幕">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="0.0"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="plv_vod_btn_send_dm"/>
                             <connections>
@@ -1024,17 +1024,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="SMa-Vu-mCr">
-                    <rect key="frame" x="96.5" y="114" width="474" height="147.5"/>
+                    <rect key="frame" x="184" y="144" width="299.5" height="87.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isO-vR-aZJ">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="147.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="87.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-sV-JHQ" userLabel="QQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <state key="normal" image="plv_vod_btn_qq"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-EV-znf">
-                                    <rect key="frame" x="48" y="128" width="24.5" height="19.5"/>
+                                    <rect key="frame" x="17.5" y="68" width="24.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -1042,14 +1042,14 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ttD-J9-lay">
-                            <rect key="frame" x="177" y="0.0" width="120" height="147.5"/>
+                            <rect key="frame" x="117" y="0.0" width="60" height="87.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ear-va-Jra" userLabel="微信">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <state key="normal" image="plv_vod_btn_wechat"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O90-fd-aTm">
-                                    <rect key="frame" x="43.5" y="128" width="33" height="19.5"/>
+                                    <rect key="frame" x="13.5" y="68" width="33" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -1057,14 +1057,14 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s33-QQ-i8S">
-                            <rect key="frame" x="354" y="0.0" width="120" height="147.5"/>
+                            <rect key="frame" x="234" y="0.0" width="65.5" height="87.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rk-y9-CFg" userLabel="新浪微博">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <rect key="frame" x="2.5" y="0.0" width="60" height="60"/>
                                     <state key="normal" image="plv_vod_btn_weibo"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新浪微博" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qm-WC-7eD">
-                                    <rect key="frame" x="27.5" y="128" width="65.5" height="19.5"/>
+                                    <rect key="frame" x="0.0" y="68" width="65.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -1087,16 +1087,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plv_vod_bg_s" translatesAutoresizingMaskIntoConstraints="NO" id="BTQ-Du-8T5">
-                    <rect key="frame" x="203.5" y="57.5" width="260" height="260"/>
+                    <rect key="frame" x="268.5" y="122.5" width="130" height="130"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-OP-RwO">
-                    <rect key="frame" x="278.5" y="119" width="110" height="137.5"/>
+                    <rect key="frame" x="305" y="147.5" width="57" height="80.5"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plv_vod_ic_brightness" translatesAutoresizingMaskIntoConstraints="NO" id="hEZ-Qz-XpK">
-                            <rect key="frame" x="0.0" y="0.0" width="110" height="114"/>
+                            <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-cX-Fpy">
-                            <rect key="frame" x="35" y="118" width="40" height="19.5"/>
+                            <rect key="frame" x="8.5" y="61" width="40" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -1135,7 +1135,7 @@
                                     <rect key="frame" x="12" y="8" width="643" height="28"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="首长，请指示.." textAlignment="natural" minimumFontSize="17" background="plv_vod_input_dm_click" disabledBackground="plv_vod_input_dm_def" translatesAutoresizingMaskIntoConstraints="NO" id="GPc-ot-JIj" userLabel="输入弹幕">
-                                            <rect key="frame" x="0.0" y="0.0" width="573" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="599" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
@@ -1143,7 +1143,7 @@
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9u-wQ-4eV" userLabel="弹幕设置">
-                                            <rect key="frame" x="591" y="0.0" width="52" height="28"/>
+                                            <rect key="frame" x="617" y="0.0" width="26" height="28"/>
                                             <state key="normal" image="plv_vod_btn_dm_settings"/>
                                             <state key="selected" image="plv_vod_btn_keyboard"/>
                                             <connections>
@@ -1427,7 +1427,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcY-Bk-qtT">
-                    <rect key="frame" x="17" y="155.5" width="64" height="64"/>
+                    <rect key="frame" x="17" y="171.5" width="32" height="32"/>
                     <state key="normal" backgroundImage="plv_btn_lockscreen"/>
                     <connections>
                         <action selector="unlockScreenAction:" destination="-1" eventType="touchUpInside" id="9wt-9a-662"/>

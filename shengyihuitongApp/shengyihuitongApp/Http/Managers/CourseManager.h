@@ -60,6 +60,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param completionHander completionHander description
  */
 - (void)publishCommentWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
+
+
+/**
+ 课程记录学习
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)courseRecordWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -29,7 +29,7 @@
     
     [self setupUI];
     
-    [self getData];
+    
     
 }
 
@@ -37,6 +37,7 @@
     [super viewWillAppear:animated];
     
     self.navigationItem.leftBarButtonItem = nil;
+    [self getData];
 }
 
 - (void)setupUI{

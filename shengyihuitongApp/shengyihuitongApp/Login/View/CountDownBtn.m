@@ -22,7 +22,7 @@
         self.backgroundColor = APPColor;
         [self setTitle:@"获取验证码" forState:0];
         [self setBackgroundImage:[XJUtil createImageWithColor:APPColor] forState:0];
-        [self setBackgroundImage:[XJUtil createImageWithColor:UIColorED] forState:UIControlStateDisabled];
+        [self setBackgroundImage:[XJUtil createImageWithColor:UIColor00FF] forState:UIControlStateDisabled];
         [self setTitleColor:[UIColor whiteColor] forState:0];
         [self setTitleColor:UIColorB2 forState:UIControlStateDisabled];
 //        [self addTarget:self action:@selector(startRun) forControlEvents:UIControlEventTouchUpInside];

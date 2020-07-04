@@ -2,7 +2,7 @@
 //  TasksDownloaderOperation.m
 //  MallApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/3.
+//  Created by mac on 2020/6/3.
 //  Copyright © 2020 Mac. All rights reserved.
 //
 

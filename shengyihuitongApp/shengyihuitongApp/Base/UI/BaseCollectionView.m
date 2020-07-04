@@ -2,8 +2,8 @@
 //  BaseCollectionView.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/30.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/30.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "BaseCollectionView.h"
@@ -24,7 +24,7 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *view = [super hitTest:point withEvent:event];
-    if ([view.superview isMemberOfClass:NSClassFromString(@"PLVDownloadComleteCell")]){
+    if ([view.superview isMemberOfClass:NSClassFromString(@"PLVDownloadComleteCell")] || [view.superview isMemberOfClass:NSClassFromString(@"PLVDownloadProcessingCell")]){
         self.scrollEnabled = NO;
     }else{
         self.scrollEnabled = YES;

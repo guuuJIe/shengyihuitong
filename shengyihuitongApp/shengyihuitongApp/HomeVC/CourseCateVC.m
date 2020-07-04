@@ -10,9 +10,11 @@
 #import "CatelogueCell.h"
 #import "CatelogueTitleView.h"
 #import "VideoPLayVC.h"
+#import "CourseManager.h"
 @interface CourseCateVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *resultArr;
+@property (nonatomic, strong) CourseManager *manager;
 @end
 
 @implementation CourseCateVC
@@ -21,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = UIColor.cyanColor;
+    self.view.backgroundColor = UIColor.whiteColor;
     [self setupUI];
 }
 
@@ -29,7 +31,8 @@
 - (void)setupUI{
     [self.view addSubview:self.listTableview];
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+        make.left.right.top.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(-50-BottomAreaHeight-55);
     }];
 }
 
@@ -42,6 +45,26 @@
 }
 
 - (void)setDetailModel:(CourseDetailModel *)detailModel{
+    
+    
+    for (Chapter_list *chapter in detailModel.chapter_list) {
+        for (Child_list *submodel in chapter.child_list) {
+            if (submodel.chapter_id == detailModel.last_video_chapter_id) {
+                submodel.isSel = true;
+            }
+        }
+    }
+    
+    if (!detailModel.hav_buy) {
+        [self.listTableview mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.mas_equalTo(self.view);
+            make.bottom.mas_equalTo(-45-BottomAreaHeight);
+        }];
+    }
+    
+    [self.listTableview updateFocusIfNeeded];
+    [self.listTableview updateConstraintsIfNeeded];
+   
     _detailModel = detailModel;
     [self.listTableview reloadData];
 }
@@ -85,15 +108,53 @@
     
     Chapter_list *chapter  = self.detailModel.chapter_list[indexPath.section];
     Child_list *model = chapter.child_list[indexPath.row];
-    if (model.is_free) {
-        VideoPLayVC *vc = [VideoPLayVC new];
-
-        vc.videoId = model.video_id;
-        [self.navigationController pushViewController:vc animated:true];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshFullScreen" object:@{@"video_id":model.video_id}];
-    }else{
-        [JMBManager showBriefAlert:@"当前课程不可观看"];
+//    if (self.detailModel.ha || self.detailModel.hav_buy) {
+//
+//
+//
+//    }else{
+//        [JMBManager showBriefAlert:@"未购买"];
+//    }
+    
+    if (self.detailModel.hav_buy == false && model.is_free == 0) {
+        [JMBManager showBriefAlert:@"未购买"];
+    }else if (self.detailModel.hav_buy == false && model.is_free == 1){
+      
+//        [self uploadLearnCourse:model];
+        [self uploadLearnCourse:model withblock:^(NSError *error, MessageBody *result) {
+            VideoPLayVC *vc = [VideoPLayVC new];
+              
+              vc.videoId = model.video_id;
+              
+//              [[NSUserDefaults standardUserDefaults] setObject:model.mj_keyValues forKey:@"lastModel"];
+//              [[NSUserDefaults standardUserDefaults] synchronize];
+              [self.navigationController pushViewController:vc animated:true];
+        }];
+        
+  
+    }else if (self.detailModel.hav_buy== true){
+        [self uploadLearnCourse:model withblock:^(NSError *error, MessageBody *result) {
+            VideoPLayVC *vc = [VideoPLayVC new];
+               vc.videoId = model.video_id;
+               
+            
+               [self.navigationController pushViewController:vc animated:true];
+        }];
+        
     }
+}
+
+- (void)uploadLearnCourse:(Child_list *)model withblock:(MessageBodyNetworkCompletionHandler)completionHander{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setValue:@(model.chapter_id) forKey:@"chapter_id"];
+    [dic setValue:@"1" forKey:@"duration"];
+    [dic setValue:@"1" forKey:@"last_video"];
+    [self.manager courseRecordWithparameters:dic withCompletionHandler:^(NSError *error, MessageBody *result) {
+        if (result.code == 1) {
+            completionHander(error,result);
+        }
+        
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -129,6 +190,14 @@
     }
     
     return _listTableview;
+}
+
+- (CourseManager *)manager{
+    if (!_manager) {
+        _manager = [CourseManager new];
+    }
+    
+    return _manager;
 }
 
 @end

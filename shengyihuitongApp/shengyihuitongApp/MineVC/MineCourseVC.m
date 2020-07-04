@@ -42,6 +42,7 @@
             self.dataArr = dic[@"course_list"];
             [self.listTableview reloadData];
         }
+        [self.listTableview.mj_header endRefreshing];
         [JMBManager hideAlert];
     }];
 }

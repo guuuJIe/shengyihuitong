@@ -27,4 +27,6 @@
 #import "BaseNavigationController.h"
 #import "SDWebImage.h"
 #import "FMDB.h"
+#import "NSObject+BGModel.h"
+#import "CourseDetailModel.h"
 #endif /* Header_h */

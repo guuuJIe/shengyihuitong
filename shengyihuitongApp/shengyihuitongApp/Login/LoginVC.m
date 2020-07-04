@@ -63,6 +63,8 @@
             
         }else if (type == 101){
             [weakself.navigationController pushViewController:[NSClassFromString(@"RegisterVC") new] animated:true];
+        }else if (type == 102){
+            [weakself.navigationController pushViewController:[NSClassFromString(@"ForgetPasswordVC") new] animated:true];
         }
     };
 }
@@ -75,6 +77,7 @@
         if (result.code == 1) {
             JLog(@"%@",result.result);
             [[NSUserDefaults standardUserDefaults] setObject:result.result forKey:@"accessToken"];
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:refreshUserInfo object:nil];
             [self dismissViewControllerAnimated:true completion:nil];
         }

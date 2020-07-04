@@ -2,8 +2,8 @@
 //  MineCourseDownLoadCategolueVC.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/29.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/29.
+//  Copyright © 2020 mac. All rights reserved.
 //
 #import <PLVVodSDK/PLVVodSDK.h>
 #import "MineCourseDownLoadCategolueVC.h"
@@ -13,7 +13,12 @@
 #import "CourseManager.h"
 #import "AllSelView.h"
 #import "TasksDownloaderOperation.h"
-#import "DPDatabaseManager.h"
+#import "FMDBHelper.h"
+#import "LCLDataManager.h"
+#import "NSObject+BGModel.h"
+#import "MineDownloadVC.h"
+#import "PLVVodDownloadInfo+extension.h"
+#import "PLVDownloadCompleteInfoModel.h"
 @interface MineCourseDownLoadCategolueVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *resultArr;
@@ -23,7 +28,10 @@
 @property (nonatomic, strong) AllSelView *selView;
 @property (nonatomic, strong) NSMutableArray *modelArr;
 @property (nonatomic, strong) TasksDownloaderOperation *lastOp;
-@property (strong, nonatomic) NSOperationQueue *downloadQueue;
+@property (nonatomic, strong) NSOperationQueue *downloadQueue;
+@property (nonatomic, strong) CourseDetailModel *tempModel;
+@property (nonatomic, strong) CourseDetailModel *thirdModel;
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @end
 
 @implementation MineCourseDownLoadCategolueVC
@@ -33,8 +41,9 @@
     // Do any additional setup after loading the view.
     
     [self setupUI];
-    
+
     [self getData];
+    
 }
 
 - (void)setupUI{
@@ -42,13 +51,14 @@
     self.navigationItem.title = self.dic[@"course_name"];
     [self.view addSubview:self.listTableview];
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+        make.left.right.top.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(-50-BottomAreaHeight);
     }];
     
     [self.view addSubview:self.selView];
     [self.selView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(self.view);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(50+BottomAreaHeight);
     }];
 }
 
@@ -59,9 +69,12 @@
 - (void)getData{
     [self.manager getCourseInfoDataWithparameters:self.dic[@"course_id"] withCompletionHandler:^(NSError *error, MessageBody *result) {
         if (result.code == 1) {
-
-            self.courseModel = result.result;
-    
+            CourseDetailModel *model = (CourseDetailModel *)result.result;
+            self.courseModel =[model mutableCopy] ;
+            self.tempModel = [model mutableCopy];
+            self.thirdModel = [model mutableCopy];
+            self.thirdModel.chapter_list = [NSMutableArray array];
+            self.tempModel.bg_tableName = mytableName;
             [self.listTableview reloadData];
         }
     }];
@@ -92,8 +105,8 @@
     Chapter_list *chapter  = self.courseModel.chapter_list[indexPath.section];
 
     cell.detailModel = chapter.child_list[indexPath.row];
-//    [self courseSel:cell withChapter:chapter.child_list[indexPath.row]];
-    [self courseSel:cell withNSIndexPath:indexPath];
+
+    [self courseSel:cell withNSIndexPath:indexPath andCurrentModel:self.tempModel];
     return cell;
 }
 
@@ -108,93 +121,103 @@
     return 55.0f;
 }
 
-- (void)courseSel:(MineCatalogueCell *)cell withNSIndexPath:(NSIndexPath *)indexPath{
+- (void)courseSel:(MineCatalogueCell *)cell withNSIndexPath:(NSIndexPath *)indexPath andCurrentModel:(CourseDetailModel *)tempModel{
     
-     CourseDetailModel *courseModel = self.courseModel;
-    __block Chapter_list *chapter  = self.courseModel.chapter_list[indexPath.section];
+//    CourseDetailModel *selfModel = self.courseModel;
+    Chapter_list *chapter  = self.courseModel.chapter_list[indexPath.section];
     Child_list *model = chapter.child_list[indexPath.row];
     
-    
-    NSMutableArray <Child_list *> *dataArray = [NSMutableArray array];
-    __block CourseDetailModel *tempModel = courseModel;
+    WeakSelf(self)
     cell.clickRowBlock = ^(BOOL isClick) {
-         model.isSel = !model.isSel;
+        model.isSel = !model.isSel;
+        StrongSelf(self)
         if (model.isSel) {
-            if ([self.modelArr containsObject:model]) {
-                return ;
-            }
-            
-            /*
-             *
-             先遍历选中的课程数组
-             如果有选中 加入新的数组 新的childlist
-             */
-            
-            [chapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (obj.isSel) {
-                    [dataArray addObject:model];
-                    chapter.itemIsSel = true;//标记有子数组选中 把章节设为true
-                }else{
-                    chapter.itemIsSel = false;
-                }
-                
-            }];
-            
-
-            /*
-            *
-              遍历选中的章节数组
-              如果itemIsSel== true 更改新的childList
-            */
-            [tempModel.chapter_list enumerateObjectsUsingBlock:^(Chapter_list * _Nonnull chapterModel, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (chapterModel.itemIsSel) {
-                    chapterModel.child_list = dataArray;
-                }else{
-                    chapterModel.child_list = [NSMutableArray array];
-                }
-            }];
-            
-            CourseDetailModel *model333 = tempModel;
-
-            JLog(@"下载的数据%@",tempModel);
+            [self.modelArr addObject:model];
         }else{
-
-            
-            [chapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (!obj.isSel) {
-                    chapter.itemIsSel = false;//标记有子数组选中 把章节设为true
-                }
-                
-            }];
-            
-            
-            [tempModel.chapter_list enumerateObjectsUsingBlock:^(Chapter_list * _Nonnull chapterModel, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (!chapterModel.itemIsSel) {
-                    chapterModel.child_list = dataArray;
-                }
-            }];
-            
-            CourseDetailModel *modealllll = tempModel;
-            JLog(@"下载的数据%@",modealllll);
+            if ([self.modelArr containsObject:model]) {
+                [self.modelArr removeObject:model];
+            }
         }
+        
+        
+        
+        
+//        NSMutableArray <Child_list *> *dataArray = [NSMutableArray array];
+//        model.isSel = !model.isSel;
+//        if (model.isSel) {
+//            /*
+//             *
+//             先遍历选中的课程数组
+//             如果有选中 加入新的数组 新的childlist
+//             */
+//            [chapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                if (obj.isSel) {
+//                    [dataArray addObject:obj];
+//                    chapter.itemIsSel = true;//标记有子数组选中 把章节设为true
+//                }
+//
+//            }];
+//
+//            NSMutableArray *tempdata = [NSMutableArray arrayWithArray:self.tempModel.chapter_list];
+//            NSArray<Chapter_list *> *deepArray= [[NSArray alloc] initWithArray:tempdata copyItems:true];
+//            NSMutableArray *datas = [NSMutableArray arrayWithArray:deepArray];
+//
+//            [datas replaceObjectAtIndex:indexPath.section withObject:chapter.mutableCopy];
+//
+//
+//            Chapter_list *mychapter = datas[indexPath.section];
+//            mychapter.child_list = dataArray;
+//
+//            //这是遍历记录了选中的章节
+//            for (int i = 0; i < self.thirdModel.chapter_list.count; i++) {
+//                Chapter_list *subChapter = self.thirdModel.chapter_list[i];
+//                if ([subChapter.chapter_name isEqualToString:mychapter.chapter_name]) {
+//                    [self.thirdModel.chapter_list replaceObjectAtIndex:i withObject:mychapter];
+//                    return ;
+//                }
+//            }
+//            [self.thirdModel.chapter_list addObject:mychapter];
+//
+//            JLog(@"%lu",(unsigned long)self.thirdModel.chapter_list.count);
+//
+//        }else{
+//            JLog(@"%ld %ld",(long)indexPath.section,indexPath.row);
+//            Chapter_list *curChapter = self.thirdModel.chapter_list[indexPath.section];
+//            [curChapter.child_list replaceObjectAtIndex:indexPath.row withObject:model];
+//            [curChapter.child_list enumerateObjectsUsingBlock:^(Child_list * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                if (obj.isSel) {
+//                    [dataArray addObject:obj];
+//                    curChapter.itemIsSel = true;//标记有子数组选中 把章节设为true
+//                }
+//
+//            }];
+//
+//            if (dataArray.count == 0) {
+//                curChapter.itemIsSel = false;
+//            }
+//
+//            NSArray<Chapter_list *> *deepArray= [[NSArray alloc] initWithArray:self.tempModel.chapter_list copyItems:true];
+//            [deepArray enumerateObjectsUsingBlock:^(Chapter_list * _Nonnull chapterModel, NSUInteger idx, BOOL * _Nonnull stop) {
+//                if (!chapterModel.itemIsSel) {
+//                    chapterModel.child_list = [NSMutableArray array];
+//                }
+//            }];
+//
+//            NSMutableArray *array = [NSMutableArray arrayWithArray:deepArray];
+//            for (Chapter_list *model in deepArray) {
+//                if (model.child_list.count == 0) {
+//                    [array removeObject:model];
+//                }
+//            }
+//
+//            self.thirdModel.chapter_list = array;
+//
+//            CourseDetailModel *modealllll = self.thirdModel;
+//            JLog(@"下载的数据%@",modealllll);
+//        }
     };
 
 }
-
-
-- (void)downloadVideo:(PLVVodVideo *)video {
-    PLVVodDownloadManager *downloadManager = [PLVVodDownloadManager sharedManager];
-    PLVVodDownloadInfo *info = [downloadManager downloadVideo:video];
-    
-#ifdef PLVSupportDownloadAudio
-    // 音频下载测试入口，需要音频下载功能客户，放开注释
-    [downloadManager downloadAudio:video];
-    
-#endif
-    
-    if (info) NSLog(@"%@ - %zd 已加入下载队列", info.video.vid, info.quality);
-}
-
 
 - (UITableView *)listTableview{
     if (!_listTableview) {
@@ -232,20 +255,20 @@
             StrongSelf(self)
 //            if (isClick) {
             [self.modelArr removeAllObjects];
-                NSArray *arry = self.courseModel.chapter_list;
-                for (int i  = 0; i<arry.count ; i++) {
-                    Chapter_list *model = arry[i];
-                    for (int j = 0; j < model.child_list.count; j++) {
-                        Child_list *childModel = model.child_list[j];
-                        childModel.isSel = isClick;
-                        if (childModel.isSel) {
-                            [self.modelArr addObject:childModel];
-                        }else{
-                            [self.modelArr removeObject:childModel];
-                        }
+            NSArray *arry = self.courseModel.chapter_list;
+            for (int i  = 0; i<arry.count ; i++) {
+                Chapter_list *model = arry[i];
+                for (int j = 0; j < model.child_list.count; j++) {
+                    Child_list *childModel = model.child_list[j];
+                    childModel.isSel = isClick;
+                    if (childModel.isSel) {
+                        [self.modelArr addObject:childModel];
+                    }else{
+                        [self.modelArr removeObject:childModel];
                     }
                 }
-                [self.listTableview reloadData];
+            }
+            [self.listTableview reloadData];
 //            }
         };
         
@@ -255,7 +278,7 @@
                 [JMBManager showBriefAlert:@"请选择你要下载的视频"];
                 return ;
             }
-            JLog(@"%@",self.modelArr);
+
             [self.modelArr enumerateObjectsUsingBlock:^(Child_list  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 __block TasksDownloaderOperation *op = [[TasksDownloaderOperation alloc] initWithTask:^{
                     JLog(@"%@",obj.chapter_name);
@@ -263,23 +286,55 @@
                         if (video.available){
                             [self downloadVideo:video];
                         }
+                        
                         [op done];
+                        
                     }];
-                    
+
                 }];
-                
+//
                 [self.downloadQueue addOperation:op];
-                
                 [self.lastOp addDependency:op];
                 self.lastOp = op;
+                
             }];
-            
+            [self.downloadQueue waitUntilAllOperationsAreFinished];
+            MineDownloadVC *vc = [MineDownloadVC new];
+            [self.navigationController pushViewController:vc animated:true];
 
         };
     }
     
     return _selView;
 }
+
+- (void)downloadVideo:(PLVVodVideo *)video {
+    PLVVodDownloadManager *downloadManager = [PLVVodDownloadManager sharedManager];
+    PLVVodDownloadInfo *info = [downloadManager downloadVideo:video];
+    
+#ifdef PLVSupportDownloadAudio
+    // 音频下载测试入口，需要音频下载功能客户，放开注释
+    [downloadManager downloadAudio:video];
+    
+#endif
+    
+    if (info){
+      NSLog(@"%@ - %zd 已加入下载队列", info.video.vid, info.quality);
+        PLVDownloadCompleteInfoModel *model = [PLVDownloadCompleteInfoModel new];
+        model.downloadInfo = info;
+        model.userPhone = userMobile;
+        
+        //    [PLVVodDownloadInfo bg_drop:mytableName];
+        //    [PLVDownloadCompleteInfoModel bg_drop:mytableName];
+        model.bg_tableName = mytableName;
+        model.stautes = 0;
+        model.localVideo = [PLVVodLocalVideo localVideoWithVideo:info.video dir:[PLVVodDownloadManager sharedManager].downloadDir];
+        model.identifier = info.identifier;
+        [model bg_save];
+    }
+}
+
+
 
 - (NSMutableArray *)modelArr{
     if (!_modelArr) {
@@ -292,8 +347,17 @@
 - (NSOperationQueue *)downloadQueue{
     if (!_downloadQueue) {
         _downloadQueue = [NSOperationQueue new];
+        _downloadQueue.maxConcurrentOperationCount = 1;
     }
     
     return _downloadQueue;
+}
+
+- (dispatch_semaphore_t)semaphore{
+    if (!_semaphore) {
+        _semaphore = dispatch_semaphore_create(1);
+    }
+    
+    return _semaphore;
 }
 @end

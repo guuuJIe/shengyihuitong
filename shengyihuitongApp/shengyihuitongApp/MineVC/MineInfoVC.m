@@ -2,8 +2,8 @@
 //  MineInfoVC.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/30.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/30.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "MineInfoVC.h"
@@ -29,7 +29,7 @@
 
 
 - (void)setupData{
-    [self.avatarImage sd_setImageWithURL:URL(self.userDic[@"avatar"])];
+    [self.avatarImage sd_setImageWithURL:URL(self.userDic[@"avatar"]) placeholderImage:[UIImage imageNamed:@"icon_1"]];
     self.telText.text = self.userDic[@"mobile"];
     self.nickLabel.text = self.userDic[@"username"];
 }

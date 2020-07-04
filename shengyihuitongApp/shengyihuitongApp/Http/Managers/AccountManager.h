@@ -40,6 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param completionHander completionHander description
  */
 - (void)getVerCodeWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
+
+/**
+ 忘记密码
+ @param parameters parameters description
+ @param completionHander completionHander description
+ */
+- (void)resetPwdWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander;
 @end
 
 NS_ASSUME_NONNULL_END

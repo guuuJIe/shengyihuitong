@@ -60,7 +60,7 @@
             cell = [[CourseIntroCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellIde];
         }
         
-//        [cell setupData:self.dataDic];
+
         cell.detailModel = self.detailModel;
         return cell;
     }else{

@@ -2,8 +2,8 @@
 //  CommonView.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/28.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/28.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "CommonView.h"
@@ -46,12 +46,12 @@
     if(!_actButton)
     {
         _actButton=[UIButton  new];
-        [_actButton setTitle:@"立即学习" forState:UIControlStateNormal];
+        [_actButton setTitle:@"开始学习" forState:UIControlStateNormal];
         _actButton.titleLabel.font = LabelFont14;
         [_actButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_actButton setBackgroundColor:UIColor276];
+        [_actButton setBackgroundColor:APPColor];
         [_actButton addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-        [_actButton setBackgroundImage:[UIImage imageWithColor:APPColor] forState:UIControlStateDisabled];
+//        [_actButton setBackgroundImage:[UIImage imageWithColor:APPColor] forState:UIControlStateDisabled];
         
     }
     return _actButton;

@@ -29,7 +29,7 @@
     
     UILabel *title = [UILabel new];
     title.text = @"账号";
-    title.textColor = UIColor60;
+    title.textColor = UIColor333;
     title.font = LabelFont14;
     [self addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,7 +43,12 @@
     teltext.returnKeyType = UIReturnKeyDone;
     teltext.keyboardType = UIKeyboardTypeDefault;
     teltext.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    teltext.text = @"13901509103";
+    #ifdef DEBUG
+           teltext.text = @"15895062421";
+    #else
+            
+    #endif
+   
     
     [self addSubview:teltext];
     self.acctextField = teltext;
@@ -66,7 +71,7 @@
     
     UILabel *title2 = [UILabel new];
     title2.text = @"密码";
-    title2.textColor = UIColor60;
+    title2.textColor = UIColor333;
     title2.font = LabelFont14;
     [self addSubview:title2];
     [title2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,7 +82,12 @@
     codetext.placeholder = @"请输入密码";
     codetext.textColor = UIColor333;
     codetext.font = LabelFont16;
-    codetext.text = @"qweqwe";
+    #ifdef DEBUG
+           codetext.text = @"123123";
+    #else
+            
+    #endif
+    
     codetext.delegate = self;
     self.pwdtextField = codetext;
     self.pwdtextField.secureTextEntry = true;

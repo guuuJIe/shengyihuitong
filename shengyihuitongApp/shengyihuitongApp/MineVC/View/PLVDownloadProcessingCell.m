@@ -2,8 +2,8 @@
 //  PLVDownloadProcessingCell.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/29.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/29.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "PLVDownloadProcessingCell.h"
@@ -42,7 +42,7 @@
         make.left.mas_equalTo(12);
         make.top.mas_equalTo(15);
         make.bottom.mas_equalTo(-15);
-        make.size.mas_equalTo(CGSizeMake(128, 72));
+        make.size.mas_equalTo(CGSizeMake(120*AdapterScal, 72*AdapterScal));
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

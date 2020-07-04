@@ -57,16 +57,16 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     self.view.backgroundColor = UIColorEF;
+     self.view.backgroundColor = UIColor.whiteColor;
 }
 
 - (void)setupUI{
-    self.view.backgroundColor = UIColorEF;
+    self.view.backgroundColor = UIColor.whiteColor;
     self.navigationItem.title = self.dic[@"course_name"];
     [self.view addSubview:self.listTableview];
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(self.view);
-        make.bottom.mas_equalTo(-50-BottomAreaHeight);
+        make.bottom.mas_equalTo(0);
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
@@ -80,14 +80,31 @@
 }
 
 - (void)getData{
+    [JMBManager showLoading];
     [self.manager getCourseInfoDataWithparameters:self.dic[@"course_id"] withCompletionHandler:^(NSError *error, MessageBody *result) {
         if (result.code == 1) {
 //            self.dataDic = result.result;
             self.courseModel = result.result;
+            
+            
+            
             self.commView.hidden = !self.courseModel.hav_buy;
             [self.listTableview reloadData];
+//            if (self.courseModel.hav_buy) {
+//                self.commView.hidden = false;
+//                return ;
+//            }
+//            
+//            if (self.courseModel.is_free) {
+//                self.commView.hidden = false;
+//                return;
+//            }
         }
+        
+        [JMBManager hideAlert];
     }];
+    
+   
 }
 
 
@@ -189,7 +206,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 1) {
-        return 45;
+        return 55;
     }
     return CGFLOAT_MIN;
 }
@@ -315,7 +332,7 @@
         _listTableview.delegate=self;
         _listTableview.dataSource=self;
         _listTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-        _listTableview.backgroundColor = UIColorEF;
+        _listTableview.backgroundColor = UIColor.whiteColor;
         [_listTableview registerClass:[CourserCoverCell class] forCellReuseIdentifier:@"CourserCoverCell"];
         [_listTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         _listTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -353,12 +370,29 @@
         WeakSelf(self)
         _commView.actBlock = ^{
             VideoPLayVC *vc = [VideoPLayVC new];
-            Chapter_list *model = weakself.courseModel.chapter_list.firstObject;
-            Child_list *childModle = model.child_list.firstObject;
-            vc.videoId = childModle.video_id;
+            
+            if (weakself.courseModel.last_video_chapter_id == 0) {
+                Chapter_list *model = weakself.courseModel.chapter_list.firstObject;
+                Child_list *childModle = model.child_list.firstObject;
+                vc.videoId = childModle.video_id;
+            }else{
+                Child_list *tempModel;
+                for (Chapter_list *chapter in weakself.courseModel.chapter_list) {
+                    for (Child_list *submodel in chapter.child_list) {
+                        if (submodel.chapter_id == weakself.courseModel.last_video_chapter_id) {
+                            tempModel = submodel;
+                        }
+                    }
+                }
+                
+                vc.videoId = tempModel.video_id;
+            }
+            
+          
+
             [weakself.navigationController pushViewController:vc animated:true];
         };
-//        _commView.hidden = true;
+        _commView.hidden = true;
     }
     
     return _commView;

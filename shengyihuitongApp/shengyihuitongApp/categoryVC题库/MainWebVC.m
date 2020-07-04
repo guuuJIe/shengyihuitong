@@ -27,10 +27,22 @@
 
 - (void)setupUI{
   
+    UIView *view = [UIView new];
+    view.backgroundColor = APPColor;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self.view);
+        make.top.mas_equalTo(0);
+        make.height.mas_equalTo(StatusBarHeight);
+    }];
+    
     [self.view addSubview:self.wkwebView];
     [self.wkwebView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+        make.top.mas_equalTo(view.mas_bottom);
+        make.left.right.bottom.mas_equalTo(self.view);
     }];
+    
+    
     
     UIButton *button = [UIButton new];
     [button setTitle:@"返回" forState:0];
@@ -42,7 +54,7 @@
     [self.view addSubview:button];
     [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-65);
+        make.bottom.mas_equalTo(-StatusBarHeight - 40);
         make.right.mas_equalTo(-15);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
@@ -85,7 +97,7 @@
         
         _wkwebView.navigationDelegate = self;//导航代理
         _wkwebView.UIDelegate = self;//UI代理
-        _wkwebView.backgroundColor = [UIColor whiteColor];
+        _wkwebView.backgroundColor = APPColor;
         _wkwebView.allowsBackForwardNavigationGestures = YES;
         _wkwebView.scrollView.scrollEnabled = false;
         _wkwebView.scrollView.showsVerticalScrollIndicator = false;

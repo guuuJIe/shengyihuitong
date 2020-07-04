@@ -30,7 +30,7 @@
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(30);
             make.right.mas_equalTo(-30);
-            make.height.mas_equalTo(251);
+            make.height.mas_equalTo(281*AdapterScal);
             make.center.mas_equalTo(self);
         }];
         

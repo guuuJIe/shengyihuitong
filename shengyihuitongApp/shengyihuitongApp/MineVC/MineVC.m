@@ -59,6 +59,8 @@
         if (result.code == 1) {
             NSDictionary *dic = result.result;
             self.userDic = dic;
+            [[NSUserDefaults standardUserDefaults] setObject:dic[@"mobile"] forKey:@"mobile"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self.listTableview reloadData];
         }
         [self.listTableview.mj_header endRefreshing];

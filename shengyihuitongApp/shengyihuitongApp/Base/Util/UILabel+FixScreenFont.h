@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UILabel (FixScreenFont)
 @property (nonatomic)IBInspectable float fixWidthScreenFont;
+
+/**
+ *  改变行间距
+ */
++ (void)changeLineSpaceForLabel:(UILabel *)label WithSpace:(float)space;
 @end
 
 NS_ASSUME_NONNULL_END

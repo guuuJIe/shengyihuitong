@@ -45,6 +45,14 @@
       }];
 }
 
+
+- (void)resetPwdWithparameters:(id)parameters withCompletionHandler:(MessageBodyNetworkCompletionHandler)completionHander{
+    [self.client post:resetPwd parameters:parameters isNeedHeader:true withCompletionHandler:^(NSError *error, id result) {
+        MessageBody *body = [MessageBody instanceWithDataResponseObject:result withTheDataModelClass:nil withError:error isArray:NO];
+        completionHander(error,body);
+    }];
+}
+
 - (JSHttpClient *)client
 {
     if (!_client) {

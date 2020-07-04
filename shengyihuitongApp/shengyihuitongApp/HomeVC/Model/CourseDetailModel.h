@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <PLVVodSDK/PLVVodSDK.h>
 NS_ASSUME_NONNULL_BEGIN
+
+
 
 @interface Child_list: NSObject
 @property (nonatomic, assign) NSInteger study_time;
@@ -31,7 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSel;
 @end
 
-@interface Chapter_list: NSObject
+@interface DownloadInfo: Child_list
+@property (nonatomic, assign) NSInteger isDownload;//0表示未下载完成 1表示下载完成
+@property (nonatomic, copy) NSString *identifier;//唯一标识
+@end
+
+@interface Chapter_list: NSObject<NSCopying,NSMutableCopying>
 @property (nonatomic, assign) NSInteger parent_id;
 @property (nonatomic, assign) NSInteger play_status;
 @property (nonatomic, copy) NSString *live_end;
@@ -55,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface CourseDetailModel : NSObject
+@interface CourseDetailModel : NSObject<NSCopying,NSMutableCopying>
 
 @property (nonatomic, assign) NSInteger is_delete;
 @property (nonatomic, copy) NSString *video_id;

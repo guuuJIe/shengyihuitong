@@ -2,14 +2,15 @@
 //  MineDownloadVC.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/29.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/29.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "MineDownloadVC.h"
 #import "FSScrollContentView.h"
 #import "VideoDownloadProcessingVC.h"
 #import "VideoDownloadCompelteVC.h"
+#import "MineDownloadCategolueVC.h"
 @interface MineDownloadVC ()<FSPageContentViewDelegate,FSPageContentViewDelegate,FSSegmentTitleViewDelegate>
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, strong) FSPageContentView *pageContentView;
@@ -35,13 +36,10 @@
     self.titleView.indicatorColor = APPColor;
     self.titleView.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:self.titleView];
-//    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 43, Screen_Width, 1)];
-//    line.backgroundColor = UIColorEF;
-//    [self.view addSubview:line];
+
     
     VideoDownloadProcessingVC *vc = [VideoDownloadProcessingVC new];
-//    vc.jobId = self.jobid;
-//    [vc getData];
+//    MineDownloadCategolueVC *vc = [MineDownloadCategolueVC new];
     VideoDownloadCompelteVC *vc2 = [VideoDownloadCompelteVC new];
 //    vc2.jobId = self.jobid;
     NSMutableArray *contentVCs = [NSMutableArray array];

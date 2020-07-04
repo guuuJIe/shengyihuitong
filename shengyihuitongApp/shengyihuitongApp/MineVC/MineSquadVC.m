@@ -27,7 +27,7 @@
 }
 
 - (void)setupUI{
-    self.navigationItem.title = @"我的课程";
+    self.navigationItem.title = @"我的班次";
     [self.view addSubview:self.listTableview];
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);

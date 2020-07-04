@@ -35,7 +35,8 @@
 - (void)setUpUI{
     [self.view addSubview:self.listTableview];
     [self.listTableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+        make.left.right.top.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(-50-BottomAreaHeight-45);
     }];
 }
 

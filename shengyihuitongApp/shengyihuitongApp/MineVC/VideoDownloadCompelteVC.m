@@ -2,8 +2,8 @@
 //  VideoDownloadCompelteVC.m
 //  shengyihuitongApp
 //
-//  Created by 温州轩捷贸易有限公司 on 2020/6/29.
-//  Copyright © 2020 温州轩捷贸易有限公司. All rights reserved.
+//  Created by mac on 2020/6/29.
+//  Copyright © 2020 mac. All rights reserved.
 //
 
 #import "VideoDownloadCompelteVC.h"
@@ -34,14 +34,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
    
-    [self initVideoList];
+    
     self.tableView = [BaseTableView new];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(1);
-        make.left.right.bottom.mas_equalTo(self.view);
+        make.left.right.top.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(-50-StatusBarAndNavigationBarHeight);
     }];
     [self.tableView registerClass:[PLVDownloadComleteCell class] forCellReuseIdentifier:[PLVDownloadComleteCell identifier]];
     self.tableView.backgroundColor = [UIColor themeBackgroundColor];
@@ -58,18 +58,22 @@
     self.emptyView = emptyLabel;
     
     //
-    [PLVVodDownloadManager sharedManager].downloadCompleteBlock = ^(PLVVodDownloadInfo *info) {
-        // 刷新列表
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            PLVDownloadCompleteInfoModel *model = [[PLVDownloadCompleteInfoModel alloc] init];
-            model.downloadInfo = info;
-            model.localVideo = [PLVVodLocalVideo localVideoWithVideo:info.video dir:[PLVVodDownloadManager sharedManager].downloadDir];
-            [weakSelf.downloadInfos addObject:model];
-            
-            [weakSelf.tableView reloadData];
-        });
-    };
+//    [PLVVodDownloadManager sharedManager].downloadCompleteBlock = ^(PLVVodDownloadInfo *info) {
+//        // 刷新列表
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//
+//            PLVDownloadCompleteInfoModel *model = [[PLVDownloadCompleteInfoModel alloc] init];
+//            model.downloadInfo = info;
+//            model.localVideo = [PLVVodLocalVideo localVideoWithVideo:info.video dir:[PLVVodDownloadManager sharedManager].downloadDir];
+//            [weakSelf.downloadInfos addObject:model];
+//
+//            [weakSelf.tableView reloadData];
+//        });
+//    };
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self initVideoList];
 }
 
 - (void)initVideoList{
@@ -77,15 +81,27 @@
     // 从数据库中读取已缓存视频详细信息
     // TODO:也可以从开发者自定义数据库中读取数据,方便扩展
     NSArray<PLVVodDownloadInfo *> *dbInfos = [[PLVVodDownloadManager sharedManager] requestDownloadCompleteList];
+    
+    JLog(@"下载完成视频++%@",dbInfos);
     NSMutableDictionary *dbCachedDics = [[NSMutableDictionary alloc] init];
     [dbInfos enumerateObjectsUsingBlock:^(PLVVodDownloadInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [dbCachedDics setObject:obj forKey:obj.vid];
-        
-        PLVDownloadCompleteInfoModel *model = [[PLVDownloadCompleteInfoModel alloc] init];
-        model.downloadInfo = obj;
-        [self.downloadInfos addObject:model];
+//        [dbCachedDics setObject:obj forKey:obj.vid];
+//
+//        PLVDownloadCompleteInfoModel *model = [[PLVDownloadCompleteInfoModel alloc] init];
+//        model.downloadInfo = obj;
+//        [self.downloadInfos addObject:model];
+    
     }];
     
+    
+    NSString *where = [NSString stringWithFormat:@"where %@=%@ and %@=%@",bg_sqlKey(@"userPhone"),bg_sqlValue(userMobile),bg_sqlKey(@"stautes"),bg_sqlValue(@1)];
+    [PLVDownloadCompleteInfoModel bg_findAsync:mytableName where:where complete:^(NSArray<PLVDownloadCompleteInfoModel *> * _Nullable array) {
+        JLog(@"查询出来的结果%@",array);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.downloadInfos = [NSMutableArray arrayWithArray:array];
+            [self.tableView reloadData];
+        });
+    }];
 }
 
 #pragma mark - property
@@ -191,6 +207,9 @@
     
     [self.downloadInfos removeObject:localModel];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSString *where = [NSString stringWithFormat:@"where %@=%@ and %@=%@ and %@=%@",bg_sqlKey(@"userPhone"),bg_sqlValue(userMobile),bg_sqlKey(@"stautes"),bg_sqlValue(@1),bg_sqlKey(@"identifier"),bg_sqlValue(localModel.downloadInfo.identifier)];
+    [PLVDownloadCompleteInfoModel bg_delete:mytableName where:where];
+    [self initVideoList];
 }
 
 

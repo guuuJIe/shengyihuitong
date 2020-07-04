@@ -11,8 +11,8 @@
 #import "LoginVC.h"
 #import <PLVVodSDK/PLVVodSDK.h>
 #import "PLVVodAccount.h"
-
-
+#import "CourseDetailModel.h"
+#import "NSObject+BGModel.h"
 static NSString * const PLVVodKeySettingKey = @"vodKey_preference";
 static NSString * const PLVSdkVersionSettingKey = @"sdkVersion_preference";
 static NSString * const PLVApplySettingKey = @"apply_preference";
@@ -31,7 +31,7 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
     
     
 
-    
+    [NSThread sleepForTimeInterval:1];
 //    //设置窗口对象
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.barContr = [[MainTabarController alloc]init];
@@ -49,7 +49,7 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
     UIView *launchView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     launchView.backgroundColor = [UIColor yellowColor];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    imageView.image = [UIImage imageNamed:@"launchimage .jpg"];
+    imageView.image = [UIImage imageNamed:@"launchimage.jpg"];
     imageView.center = launchView.center;
     [launchView addSubview:imageView];
     
@@ -72,7 +72,9 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
 
     [self downloadSetting];
     
-    [self clearLaunchScreenCache];
+//    [self clearLaunchScreenCache];
+    
+    [self initDataBase];
     return YES;
 }
 
@@ -180,6 +182,13 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
     NSString *userId = @"111111";
     [[PLVVodDownloadManager sharedManager] switchDownloadAccount:userId];
 #endif
+}
+
+- (void)initDataBase{
+    
+//    PLVVodDownloadInfo *model = [PLVVodDownloadInfo new];
+//    model.bg_tableName = mytableName;
+    
 }
 
 

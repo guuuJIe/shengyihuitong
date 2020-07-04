@@ -121,7 +121,7 @@ json字符串->json
 @param jsonString jsonString description
 @return return value description
 */
-+ (NSDictionary *)convert2DictionaryWithJSONString:(NSString *)jsonString;
++ (id)convert2DictionaryWithJSONString:(NSString *)jsonString;
 
 /**
 callLogin

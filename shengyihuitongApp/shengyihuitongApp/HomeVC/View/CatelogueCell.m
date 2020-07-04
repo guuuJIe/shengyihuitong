@@ -37,12 +37,6 @@
 }
 
 
-- (void)setDetailModel:(Child_list *)detailModel{
-//    _detailModel = detailModel;
-    self.titleLabel.text = detailModel.chapter_name;
-    CGFloat times = detailModel.duration/60.0;
-    self.timeLabel.text = [NSString stringWithFormat:@"时长:%.2f",times];
-}
 
 - (void)setupUI{
     
@@ -88,12 +82,29 @@
     
 }
 
+- (void)setDetailModel:(Child_list *)detailModel{
+//    _detailModel = detailModel;
+    self.titleLabel.text = detailModel.chapter_name;
+    CGFloat times = detailModel.duration/60.0;
+    self.timeLabel.text = [NSString stringWithFormat:@"时长:%.2f",times];
+    if (detailModel.isSel) {
+        self.titleLabel.textColor = [UIColor colorWithHexString:@"00FF7F"];
+    }else{
+        self.titleLabel.textColor = UIColor999;
+    }
+}
+
+- (void)setChapteModel:(Chapter_list *)chapteModel{
+    self.titleLabel.text = chapteModel.chapter_name;
+    self.timeLabel.hidden = true;
+}
+
 
 -(UILabel *)titleLabel
 {
     if(!_titleLabel)
     {
-        _titleLabel = [UILabel commonLabelWithtext:@"标题" color:UIColor999 font:LabelFont14 textAlignment:NSTextAlignmentLeft];
+        _titleLabel = [UILabel commonLabelWithtext:@"标题" color:[UIColor colorWithHexString:@"00FF7F"] font:LabelFont14 textAlignment:NSTextAlignmentLeft];
         _titleLabel.numberOfLines = 0;
         [self addSubview:_titleLabel];
     }

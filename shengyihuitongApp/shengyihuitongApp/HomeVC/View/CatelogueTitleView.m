@@ -33,9 +33,18 @@
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(12);
-        make.top.mas_equalTo(line.mas_bottom).offset(10);
+        make.left.mas_equalTo(14);
+        make.top.mas_equalTo(line.mas_bottom).offset(14);
     }];
+    
+//    UIButton *button = [UIButton new];
+//    [button setImage:[UIImage imageNamed:@"white_arrow"] forState:0];
+//    [self addSubview:button];
+//    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.mas_equalTo(-12);
+//        make.centerY.mas_equalTo(self.titleLabel);
+//        make.size.mas_equalTo(CGSizeMake(22, 22));
+//    }];
 }
 
 -(UILabel *)titleLabel
