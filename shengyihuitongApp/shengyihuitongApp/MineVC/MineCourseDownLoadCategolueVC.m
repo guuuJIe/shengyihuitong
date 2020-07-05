@@ -19,6 +19,7 @@
 #import "MineDownloadVC.h"
 #import "PLVVodDownloadInfo+extension.h"
 #import "PLVDownloadCompleteInfoModel.h"
+#import "DownloadModel.h"
 @interface MineCourseDownLoadCategolueVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *listTableview;
 @property (nonatomic, strong) NSArray *resultArr;
@@ -32,6 +33,8 @@
 @property (nonatomic, strong) CourseDetailModel *tempModel;
 @property (nonatomic, strong) CourseDetailModel *thirdModel;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
+@property (nonatomic, strong) DownloadModel *loadModel;
+@property (nonatomic, strong) NSArray<PLVVodDownloadInfo *> *downloadInfos;
 @end
 
 @implementation MineCourseDownLoadCategolueVC
@@ -43,6 +46,8 @@
     [self setupUI];
 
     [self getData];
+    
+    [self getDownloadProcessingData];
     
 }
 
@@ -63,9 +68,6 @@
 }
 
 
-
-
-
 - (void)getData{
     [self.manager getCourseInfoDataWithparameters:self.dic[@"course_id"] withCompletionHandler:^(NSError *error, MessageBody *result) {
         if (result.code == 1) {
@@ -74,12 +76,23 @@
             self.tempModel = [model mutableCopy];
             self.thirdModel = [model mutableCopy];
             self.thirdModel.chapter_list = [NSMutableArray array];
-            self.tempModel.bg_tableName = mytableName;
+//            self.tempModel.bg_tableName = mytableName;
             [self.listTableview reloadData];
         }
     }];
 }
 
+- (void)getDownloadProcessingData{
+//    [[PLVVodDownloadManager sharedManager] requstDownloadProcessingListWithCompletion:^(NSArray<PLVVodDownloadInfo *> *downloadInfos) {
+//                  if (downloadInfos.count != 0) {
+//                      [JMBManager showBriefAlert:@""];
+//                      return <#expression#>
+//                  }
+//              }];
+    
+//    [PLVVodDownloadInfo bg_drop:mytableName];
+//    [PLVDownloadCompleteInfoModel bg_drop:mytableName];
+}
 
 
 #pragma mark --- UITableViewDelegate ----
@@ -278,29 +291,57 @@
                 [JMBManager showBriefAlert:@"请选择你要下载的视频"];
                 return ;
             }
+            
+            NSString *where = [NSString stringWithFormat:@"where %@=%@ and %@>%@ and %@=%@",bg_sqlKey(@"userPhone"),bg_sqlValue(userMobile),bg_sqlKey(@"downloading_num"),bg_sqlValue(@0),bg_sqlKey(@"course_id"),bg_sqlValue(@(self.courseModel.course_id))];
+            [DownloadModel bg_findAsync:mytableName where:where complete:^(NSArray * _Nullable array) {
+                JLog(@"%@",array);
+                if (array.count != 0) {
+                    [JMBManager showBriefAlert:@"请等待当前课程任务下载完毕"];
+                }else{
+                    DownloadModel *model = [DownloadModel new];
+                    model.course_id = self.courseModel.course_id;
+                    model.course_img = self.courseModel.course_img;
+                    model.course_name = self.courseModel.course_name;
+                    model.userPhone =userMobile;
+                    model.statues = 0;
+                    model.downloading_num = self.modelArr.count;
+                    model.downloadingList = self.modelArr; //用来存下载中视频的信息
 
-            [self.modelArr enumerateObjectsUsingBlock:^(Child_list  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                __block TasksDownloaderOperation *op = [[TasksDownloaderOperation alloc] initWithTask:^{
-                    JLog(@"%@",obj.chapter_name);
-                    [PLVVodVideo requestVideoPriorityCacheWithVid:obj.video_id completion:^(PLVVodVideo *video, NSError *error) {
-                        if (video.available){
-                            [self downloadVideo:video];
-                        }
-                        
-                        [op done];
-                        
-                    }];
+//                    if (![DownloadModel bg_isExistForTableName:mytableName]) {
+                        model.bg_tableName = mytableName;
+//                    }
 
-                }];
-//
-                [self.downloadQueue addOperation:op];
-                [self.lastOp addDependency:op];
-                self.lastOp = op;
+                    [model bg_save];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        MineDownloadVC *vc = [MineDownloadVC new];
+                        [self.navigationController pushViewController:vc animated:true];
+                    });
+
+                }
                 
             }];
-            [self.downloadQueue waitUntilAllOperationsAreFinished];
-            MineDownloadVC *vc = [MineDownloadVC new];
-            [self.navigationController pushViewController:vc animated:true];
+
+//            [self.modelArr enumerateObjectsUsingBlock:^(Child_list  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                __block TasksDownloaderOperation *op = [[TasksDownloaderOperation alloc] initWithTask:^{
+//                    JLog(@"%@",obj.chapter_name);
+//                    [PLVVodVideo requestVideoPriorityCacheWithVid:obj.video_id completion:^(PLVVodVideo *video, NSError *error) {
+//                        if (video.available){
+//                            [self downloadVideo:video];
+//                        }
+//
+//                        [op done];
+//
+//                    }];
+//
+//                }];
+//
+//                [self.downloadQueue addOperation:op];
+//                [self.lastOp addDependency:op];
+//                self.lastOp = op;
+//
+//            }];
+//            [self.downloadQueue waitUntilAllOperationsAreFinished];
+//
 
         };
     }
@@ -323,14 +364,16 @@
         PLVDownloadCompleteInfoModel *model = [PLVDownloadCompleteInfoModel new];
         model.downloadInfo = info;
         model.userPhone = userMobile;
-        
-        //    [PLVVodDownloadInfo bg_drop:mytableName];
-        //    [PLVDownloadCompleteInfoModel bg_drop:mytableName];
+
+//        [PLVVodDownloadInfo bg_drop:mytableName];
+//        [PLVDownloadCompleteInfoModel bg_drop:mytableName];
         model.bg_tableName = mytableName;
         model.stautes = 0;
         model.localVideo = [PLVVodLocalVideo localVideoWithVideo:info.video dir:[PLVVodDownloadManager sharedManager].downloadDir];
         model.identifier = info.identifier;
         [model bg_save];
+       
+        
     }
 }
 

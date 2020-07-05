@@ -18,7 +18,7 @@ typedef enum
 
 
 #define mytableName @"downloadTable"
-
+#define childDownloadTable @"childDownloadTable"
 //常用常量
 #define AdapterScal  [UIScreen mainScreen].bounds.size.width/375.0
 #define AdapterHeightScal  [UIScreen mainScreen].bounds.size.height/667

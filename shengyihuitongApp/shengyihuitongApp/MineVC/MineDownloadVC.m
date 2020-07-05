@@ -11,11 +11,13 @@
 #import "VideoDownloadProcessingVC.h"
 #import "VideoDownloadCompelteVC.h"
 #import "MineDownloadCategolueVC.h"
+#import "MineDownloadingCateVC.h"
+#import "MineDownloadedCateVC.h"
 @interface MineDownloadVC ()<FSPageContentViewDelegate,FSPageContentViewDelegate,FSSegmentTitleViewDelegate>
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, strong) FSPageContentView *pageContentView;
 @end
-
+//static NSInteger value = 0;
 @implementation MineDownloadVC
 
 - (void)viewDidLoad {
@@ -23,7 +25,9 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的下载";
     self.view.backgroundColor = UIColorEF;
+     self.navigationController.viewControllers = [XJUtil removeNavViewController:self.navigationController.viewControllers withArrayClassName:@[@"MineCourseDownLoadCategolueVC"]];
     [self setui];
+//    value = 0;
 }
 
 - (void)setui{
@@ -38,10 +42,12 @@
     [self.view addSubview:self.titleView];
 
     
-    VideoDownloadProcessingVC *vc = [VideoDownloadProcessingVC new];
+//    VideoDownloadProcessingVC *vc = [VideoDownloadProcessingVC new];
+//    VideoDownloadCompelteVC *vc2 = [VideoDownloadCompelteVC new];
 //    MineDownloadCategolueVC *vc = [MineDownloadCategolueVC new];
-    VideoDownloadCompelteVC *vc2 = [VideoDownloadCompelteVC new];
-//    vc2.jobId = self.jobid;
+    MineDownloadingCateVC *vc = [MineDownloadingCateVC new];
+    MineDownloadedCateVC *vc2 = [MineDownloadedCateVC new];
+
     NSMutableArray *contentVCs = [NSMutableArray array];
     [contentVCs addObject:vc];
     [contentVCs addObject:vc2];
@@ -73,5 +79,10 @@
 
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    NSLog(@"%ld",(long)value);
+//    value += 1;
+//    NSLog(@"%ld",(long)value);
+}
 
 @end

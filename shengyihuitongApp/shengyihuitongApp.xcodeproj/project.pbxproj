@@ -54,6 +54,11 @@
 		048DF7E524AF515C00328977 /* PLVVodDownloadInfo+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048DF7E424AF515C00328977 /* PLVVodDownloadInfo+extension.m */; };
 		048DF7EB24AF5F6400328977 /* VideoDownloadProcessingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 048DF7EA24AF5F6400328977 /* VideoDownloadProcessingVC.m */; };
 		04A0CED624B0BDC700B00910 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CED524B0BDC700B00910 /* DownloadModel.m */; };
+		04A0CED924B0CB0500B00910 /* MineDownloadingCateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CED824B0CB0500B00910 /* MineDownloadingCateVC.m */; };
+		04A0CEDC24B0D4A600B00910 /* CateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CEDB24B0D4A600B00910 /* CateCell.m */; };
+		04A0CEDF24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CEDE24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.m */; };
+		04A0CEE224B1654500B00910 /* MineDownloadedCateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CEE124B1654500B00910 /* MineDownloadedCateVC.m */; };
+		04A0CEE524B19E3000B00910 /* MineDownloadedCateCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CEE424B19E3000B00910 /* MineDownloadedCateCompleteVC.m */; };
 		3D86ACC538A93C494B5CCC50 /* Pods_shengyihuitongApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88CBAEC8B2DE3021F1E115E /* Pods_shengyihuitongApp.framework */; };
 		920630F824A8961600F49BDA /* PLVTeacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 920630EA24A8961600F49BDA /* PLVTeacher.m */; };
 		920630F924A8961600F49BDA /* PLVCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 920630EB24A8961600F49BDA /* PLVCourse.m */; };
@@ -318,6 +323,16 @@
 		048DF7EA24AF5F6400328977 /* VideoDownloadProcessingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDownloadProcessingVC.m; sourceTree = "<group>"; };
 		04A0CED424B0BDC700B00910 /* DownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadModel.h; sourceTree = "<group>"; };
 		04A0CED524B0BDC700B00910 /* DownloadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadModel.m; sourceTree = "<group>"; };
+		04A0CED724B0CB0500B00910 /* MineDownloadingCateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineDownloadingCateVC.h; sourceTree = "<group>"; };
+		04A0CED824B0CB0500B00910 /* MineDownloadingCateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineDownloadingCateVC.m; sourceTree = "<group>"; };
+		04A0CEDA24B0D4A600B00910 /* CateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CateCell.h; sourceTree = "<group>"; };
+		04A0CEDB24B0D4A600B00910 /* CateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CateCell.m; sourceTree = "<group>"; };
+		04A0CEDD24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineDownloadCateDetailCourseVC.h; sourceTree = "<group>"; };
+		04A0CEDE24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineDownloadCateDetailCourseVC.m; sourceTree = "<group>"; };
+		04A0CEE024B1654500B00910 /* MineDownloadedCateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineDownloadedCateVC.h; sourceTree = "<group>"; };
+		04A0CEE124B1654500B00910 /* MineDownloadedCateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineDownloadedCateVC.m; sourceTree = "<group>"; };
+		04A0CEE324B19E3000B00910 /* MineDownloadedCateCompleteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineDownloadedCateCompleteVC.h; sourceTree = "<group>"; };
+		04A0CEE424B19E3000B00910 /* MineDownloadedCateCompleteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineDownloadedCateCompleteVC.m; sourceTree = "<group>"; };
 		0B4E11EE50FFA216F2578291 /* Pods-shengyihuitongApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.debug.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.debug.xcconfig"; sourceTree = "<group>"; };
 		523BDBB4FD6026639B7EC110 /* Pods-shengyihuitongApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shengyihuitongApp.release.xcconfig"; path = "Target Support Files/Pods-shengyihuitongApp/Pods-shengyihuitongApp.release.xcconfig"; sourceTree = "<group>"; };
 		920630EA24A8961600F49BDA /* PLVTeacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVTeacher.m; sourceTree = "<group>"; };
@@ -1329,6 +1344,14 @@
 				920631C224A9D12E00F49BDA /* MineDownloadVC.m */,
 				920631B224A9BA9700F49BDA /* MineCourseDownLoadCategolueVC.h */,
 				920631B324A9BA9700F49BDA /* MineCourseDownLoadCategolueVC.m */,
+				04A0CED724B0CB0500B00910 /* MineDownloadingCateVC.h */,
+				04A0CED824B0CB0500B00910 /* MineDownloadingCateVC.m */,
+				04A0CEE024B1654500B00910 /* MineDownloadedCateVC.h */,
+				04A0CEE124B1654500B00910 /* MineDownloadedCateVC.m */,
+				04A0CEDD24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.h */,
+				04A0CEDE24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.m */,
+				04A0CEE324B19E3000B00910 /* MineDownloadedCateCompleteVC.h */,
+				04A0CEE424B19E3000B00910 /* MineDownloadedCateCompleteVC.m */,
 				920631C424A9D1C200F49BDA /* VideoDownloadProcessingVC.h */,
 				048DF7EA24AF5F6400328977 /* VideoDownloadProcessingVC.m */,
 				920631C724A9D1DC00F49BDA /* VideoDownloadCompelteVC.h */,
@@ -1371,6 +1394,8 @@
 				920631CB24A9D56800F49BDA /* PLVDownloadProcessingCell.m */,
 				920631D124A9DC8400F49BDA /* PLVDownloadComleteCell.h */,
 				920631D224A9DC8400F49BDA /* PLVDownloadComleteCell.m */,
+				04A0CEDA24B0D4A600B00910 /* CateCell.h */,
+				04A0CEDB24B0D4A600B00910 /* CateCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1625,6 +1650,7 @@
 				9206316624A9782E00F49BDA /* PLVVodPlayerSkin.m in Sources */,
 				044EE39B24A5C9720066A3EB /* CouseIntroVC.m in Sources */,
 				9289665724A1AE4B006C5F1E /* XJUtil.m in Sources */,
+				04A0CEE524B19E3000B00910 /* MineDownloadedCateCompleteVC.m in Sources */,
 				9289661E24A18B73006C5F1E /* BaseViewController.m in Sources */,
 				9266027F24A72EB300EF8DEC /* CommentItemCell.m in Sources */,
 				044EE36424A4699F0066A3EB /* FSSegmentTitleView.m in Sources */,
@@ -1649,6 +1675,7 @@
 				9289669F24A1AEF2006C5F1E /* JMBManager.m in Sources */,
 				928965EB24A18997006C5F1E /* main.m in Sources */,
 				9206315C24A9782E00F49BDA /* PLVVodCoverView.m in Sources */,
+				04A0CED924B0CB0500B00910 /* MineDownloadingCateVC.m in Sources */,
 				920631D324A9DC8400F49BDA /* PLVDownloadComleteCell.m in Sources */,
 				044EE3C924A637050066A3EB /* MineSquadItemCell.m in Sources */,
 				920631B424A9BA9700F49BDA /* MineCourseDownLoadCategolueVC.m in Sources */,
@@ -1676,6 +1703,7 @@
 				044EE38A24A4DEEE0066A3EB /* CourserCoverCell.m in Sources */,
 				92E7B26624AAE6A50069E0D1 /* MineSettingVC.m in Sources */,
 				048DF7EB24AF5F6400328977 /* VideoDownloadProcessingVC.m in Sources */,
+				04A0CEDC24B0D4A600B00910 /* CateCell.m in Sources */,
 				92A4448324A6E6390077CD94 /* CusPickerView.m in Sources */,
 				92DE0E4A24A2E07500F562EE /* HomeManager.m in Sources */,
 				044EE39524A58C2C0066A3EB /* CourseTitleView.m in Sources */,
@@ -1694,6 +1722,7 @@
 				920631C324A9D12E00F49BDA /* MineDownloadVC.m in Sources */,
 				9289667B24A1AEB4006C5F1E /* UITextField+FixScreenfont.m in Sources */,
 				048DF7CA24ADA4BB00328977 /* NSObject+JCAdditionsORM.m in Sources */,
+				04A0CEDF24B0E5D200B00910 /* MineDownloadCateDetailCourseVC.m in Sources */,
 				044EE36A24A46A6A0066A3EB /* CourseListVC.m in Sources */,
 				920630FB24A8961600F49BDA /* PLVCourseVideo.m in Sources */,
 				92DE0E4324A2DEAD00F562EE /* SDCollectionViewCell.m in Sources */,
@@ -1711,6 +1740,7 @@
 				9289665624A1AE4B006C5F1E /* JSCMMPopupViewTool.m in Sources */,
 				9289668524A1AEC9006C5F1E /* JSHttpClient.m in Sources */,
 				9289662024A18B73006C5F1E /* CustomeTextField.m in Sources */,
+				04A0CEE224B1654500B00910 /* MineDownloadedCateVC.m in Sources */,
 				9289667C24A1AEB4006C5F1E /* UIFont+SettingSize.m in Sources */,
 				044EE3AA24A5D1290066A3EB /* RatingBar.m in Sources */,
 				92386A2B24AC66FB007E1024 /* DPDatabaseUtils.m in Sources */,

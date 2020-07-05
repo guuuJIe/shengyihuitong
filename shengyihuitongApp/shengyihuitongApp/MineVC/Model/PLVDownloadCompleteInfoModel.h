@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *userPhone;
 @property (nonatomic, assign) NSInteger stautes;
 @property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, assign) NSInteger courseid;
+@property (nonatomic, strong) NSString *vid;
 @end
 
 NS_ASSUME_NONNULL_END

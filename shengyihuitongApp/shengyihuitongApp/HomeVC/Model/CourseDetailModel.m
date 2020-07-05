@@ -113,6 +113,12 @@
 }
 
 @end
+
+@implementation DownloadInfo
+
+
+@end
+
 @implementation Child_list
 
 
@@ -120,8 +126,4 @@
 @end
 
 
-@implementation DownloadInfo
 
-
-
-@end

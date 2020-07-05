@@ -39,6 +39,7 @@
     
     [self.contentView addSubview:self.thumbnailView];
     [self.thumbnailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(15);
         make.left.mas_equalTo(12);
         make.top.mas_equalTo(15);
         make.bottom.mas_equalTo(-15);

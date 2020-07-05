@@ -10,7 +10,8 @@
 #import <PLVVodSDK/PLVVodSDK.h>
 NS_ASSUME_NONNULL_BEGIN
 
-
+@class PLVVodLocalVideo;
+@class PLVVodDownloadInfo;
 
 @interface Child_list: NSObject
 @property (nonatomic, assign) NSInteger study_time;
@@ -33,9 +34,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSel;
 @end
 
-@interface DownloadInfo: Child_list
+@interface DownloadInfo: NSObject
 @property (nonatomic, assign) NSInteger isDownload;//0表示未下载完成 1表示下载完成
-@property (nonatomic, copy) NSString *identifier;//唯一标识
+@property (nonatomic, strong) NSString *identifier;//唯一标识
+@property (nonatomic, strong) PLVVodDownloadInfo *downloadInfo;
+@property (nonatomic, assign) NSInteger courseid;
+@property (nonatomic, strong) NSString *vid;
+@property (nonatomic, copy) NSString *snapshot; // 封面
+@property (nonatomic, copy) NSString *title;    // 视频名称
+@property (nonatomic, assign) NSUInteger filesize; // 文件大小
+@property (nonatomic, assign) NSUInteger duration; // 视频时长
 @end
 
 @interface Chapter_list: NSObject<NSCopying,NSMutableCopying>

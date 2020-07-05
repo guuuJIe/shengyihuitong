@@ -13,6 +13,7 @@
 #import "PLVVodAccount.h"
 #import "CourseDetailModel.h"
 #import "NSObject+BGModel.h"
+#import "PLVDownloadCompleteInfoModel.h"
 static NSString * const PLVVodKeySettingKey = @"vodKey_preference";
 static NSString * const PLVSdkVersionSettingKey = @"sdkVersion_preference";
 static NSString * const PLVApplySettingKey = @"apply_preference";
@@ -150,7 +151,9 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
 }
 
 - (void)downloadSetting {
-     [PLVVodDownloadManager sharedManager].allowsCellularAccess = NO;
+//            [PLVVodDownloadInfo bg_drop:mytableName];
+//            [PLVDownloadCompleteInfoModel bg_drop:mytableName];
+//     [PLVVodDownloadManager sharedManager].allowsCellularAccess = NO;
     // 下载配置参数
     [PLVVodDownloadManager sharedManager].autoStart = YES;
     [PLVVodDownloadManager sharedManager].maxRuningCount = 3;
@@ -188,7 +191,7 @@ static NSString * const PLVApplySettingKey = @"apply_preference";
     
 //    PLVVodDownloadInfo *model = [PLVVodDownloadInfo new];
 //    model.bg_tableName = mytableName;
-    
+    bg_setDebug(true);
 }
 
 
